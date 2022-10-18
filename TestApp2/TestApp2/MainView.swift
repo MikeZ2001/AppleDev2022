@@ -14,14 +14,17 @@
 
 import SwiftUI
 
+//sbjbaksbjbj
+//sdasakk
+
 //Enum for the segmented control selections
 enum AppSection : String, CaseIterable {
-    case MyCard = "My Journey"
-    case MyJourney = "My Card"
+    case MyCard = "My Card"
+    case MyJourney = "My Journey"
     case MyMood = "My Mood"
 }
 
-struct ContentView: View {
+struct MainView: View {
     
     //@State is a property wrapper that allow us to update a variable and allows swift to recreate the view when that variable change to see the changes on the screen
     
@@ -69,7 +72,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
 
