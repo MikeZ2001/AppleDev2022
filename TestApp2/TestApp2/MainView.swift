@@ -14,8 +14,6 @@
 
 import SwiftUI
 
-//sbjbaksbjbj
-//sdasakk
 
 //Enum for the segmented control selections
 enum AppSection : String, CaseIterable {
