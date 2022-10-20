@@ -13,7 +13,7 @@
 //
 
 import SwiftUI
-
+import Charts
 
 //Enum for the segmented control selections
 enum AppSection : String, CaseIterable {
@@ -44,8 +44,6 @@ struct MainView: View {
            
             
             VStack {
-                //App Name
-                
                 
                 //Segmented Control
                 Picker("", selection: $segmentationSelection) {
@@ -59,6 +57,12 @@ struct MainView: View {
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
                     CardLayout(cardDate: "04/06/2023",photoName:"Grafico")
+                    
+                }
+                
+                if(segmentationSelection.rawValue.elementsEqual("My Mood")){
+                    
+                    MyMoodLayout()
                     
                 }
                     
@@ -110,14 +114,13 @@ struct CardLayout: View {
                             .padding(.leading)
                             .cornerRadius(10)
                             .padding(.top)
-                        
-                        
+                   
                        //Button emotions of the day
                             Button(action: {}){
                                 Image("AppIcon")
                                 .bold()
+                                .padding(60)
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
-                                .padding(20)
                                 .foregroundColor(Color.white)
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
                                 .cornerRadius(12)
@@ -172,3 +175,30 @@ struct CardLayout: View {
     }
 }
 
+struct ValuePerCategory {
+    var dayNumber: String
+    var moodCategory: String
+}
+
+struct MyMoodLayout: View {
+    
+        let data: [ValuePerCategory] = [
+            .init(dayNumber: "1", moodCategory: "Mood 1"),
+            .init(dayNumber: "2", moodCategory: "Mood 2"),
+            .init(dayNumber: "3", moodCategory: "Mood 3"),
+            .init(dayNumber: "4", moodCategory: "Mood 4"),
+            .init(dayNumber: "5", moodCategory: "Mood 5")
+        ]
+    
+    var body: some View {
+        
+        VStack {
+            Chart(data, id: \.dayNumber) { item in
+            PointMark(
+            x: .value("Category", item.dayNumber),
+            y: .value("Value", item.moodCategory)
+            ).foregroundStyle(Color.black)
+            }
+        }.padding(.bottom,300).padding(.leading,60).padding(.trailing,60)
+    }
+}
