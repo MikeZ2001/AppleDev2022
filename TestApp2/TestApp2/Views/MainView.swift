@@ -56,7 +56,7 @@ struct MainView: View {
         
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardLayout(cardDate: "04/06/2023",photoName:"Grafico")
+                    CardLayout(cardDate: "04/06/2023",photoName:"DogImage")
                     
                 }
                 
@@ -87,6 +87,8 @@ struct CardLayout: View {
     @State var myInput1: String = ""
     @State var myInput2: String = ""
     
+    @State var showingSheet = false
+    
     
     var body: some View {
         
@@ -103,32 +105,48 @@ struct CardLayout: View {
                             .multilineTextAlignment(.leading)
                             .padding(.top)
                             .padding(.leading)
-                            
+                     
                         HStack {
                             
                         //Image of the day
                         Image(photoName)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width:200.0,height: 200.0)
+                           
+                            .scaledToFit()
+                            .frame(maxWidth: .infinity)
+                            .frame(maxHeight: .infinity)
                             .padding(.leading)
                             .cornerRadius(10)
                             .padding(.top)
                    
+                            
+                            
                        //Button emotions of the day
-                            Button(action: {}){
+                            Button(action: {
+                                showingSheet.toggle()
+                            }){
                                 Image("AppIcon")
+                                .resizable()
+                                .scaledToFit()
                                 .bold()
-                                .padding(60)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                              
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
                                 .foregroundColor(Color.white)
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
-                                .cornerRadius(12)
+        
                                 .clipShape(Capsule())
+                            }.sheet(isPresented: $showingSheet){
+                                SheetView()
                             }
                             
-                        }
-                                            
+                    
+                            
+                        }.frame(maxWidth: .infinity).frame(maxHeight: .infinity)
+                            .padding()
+                        
+                        
                        //Stack centered elements
                         
                             //Song of the day
@@ -165,7 +183,7 @@ struct CardLayout: View {
                                        .cornerRadius(12)
                                        .clipShape(Capsule())
                                    }
-                               }.frame(maxWidth: .infinity)
+                        }.frame(maxWidth: .infinity).padding(.bottom)
                         
                     }
                    
@@ -182,23 +200,48 @@ struct ValuePerCategory {
 
 struct MyMoodLayout: View {
     
-        let data: [ValuePerCategory] = [
+        let userEmotion: [ValuePerCategory] = [
             .init(dayNumber: "1", moodCategory: "Mood 1"),
             .init(dayNumber: "2", moodCategory: "Mood 2"),
             .init(dayNumber: "3", moodCategory: "Mood 3"),
             .init(dayNumber: "4", moodCategory: "Mood 4"),
-            .init(dayNumber: "5", moodCategory: "Mood 5")
+            .init(dayNumber: "5", moodCategory: "Mood 5"),
+            .init(dayNumber: "6", moodCategory: "Mood 5"),
+            .init(dayNumber: "7", moodCategory: "Mood 5")
         ]
     
     var body: some View {
         
         VStack {
-            Chart(data, id: \.dayNumber) { item in
+            Chart(userEmotion, id: \.dayNumber) { currentUserEmotion in
             PointMark(
-            x: .value("Category", item.dayNumber),
-            y: .value("Value", item.moodCategory)
+            x: .value("Category", currentUserEmotion.dayNumber),
+            y: .value("Value", currentUserEmotion.moodCategory)
             ).foregroundStyle(Color.black)
             }
         }.padding(.bottom,300).padding(.leading,60).padding(.trailing,60)
+    }
+}
+
+
+struct SheetView: View{
+    
+    var body: some View{
+        
+        VStack{
+            
+            HStack{
+                Button {
+                } label: {
+                  Text("Small")
+                }
+                .controlSize(.small)
+                .buttonStyle(.bordered)
+                clipShape(Circle())
+                
+
+            }
+            
+        }
     }
 }
