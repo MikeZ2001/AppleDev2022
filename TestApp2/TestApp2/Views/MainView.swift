@@ -62,7 +62,13 @@ struct MainView: View {
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
                     
-                    MyMoodLayout()
+                    MoodView()
+                    
+                }
+                
+                if(segmentationSelection.rawValue.elementsEqual("My Journey")){
+                    
+                    CalendarView()
                     
                 }
                     
@@ -123,7 +129,7 @@ struct CardLayout: View {
                             
                        //Button emotions of the day
                             Button(action: {
-                                showingSheet.toggle()
+                                //showingSheet.toggle()
                             }){
                                 Image("AppIcon")
                                 .resizable()
@@ -131,7 +137,7 @@ struct CardLayout: View {
                                 .bold()
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                              
+                                
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
                                 .foregroundColor(Color.white)
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
@@ -140,8 +146,6 @@ struct CardLayout: View {
                             }.sheet(isPresented: $showingSheet){
                                 SheetView()
                             }
-                            
-                    
                             
                         }.frame(maxWidth: .infinity).frame(maxHeight: .infinity)
                             .padding()
@@ -198,30 +202,7 @@ struct ValuePerCategory {
     var moodCategory: String
 }
 
-struct MyMoodLayout: View {
-    
-        let userEmotion: [ValuePerCategory] = [
-            .init(dayNumber: "1", moodCategory: "Mood 1"),
-            .init(dayNumber: "2", moodCategory: "Mood 2"),
-            .init(dayNumber: "3", moodCategory: "Mood 3"),
-            .init(dayNumber: "4", moodCategory: "Mood 4"),
-            .init(dayNumber: "5", moodCategory: "Mood 5"),
-            .init(dayNumber: "6", moodCategory: "Mood 5"),
-            .init(dayNumber: "7", moodCategory: "Mood 5")
-        ]
-    
-    var body: some View {
-        
-        VStack {
-            Chart(userEmotion, id: \.dayNumber) { currentUserEmotion in
-            PointMark(
-            x: .value("Category", currentUserEmotion.dayNumber),
-            y: .value("Value", currentUserEmotion.moodCategory)
-            ).foregroundStyle(Color.black)
-            }
-        }.padding(.bottom,300).padding(.leading,60).padding(.trailing,60)
-    }
-}
+
 
 
 struct SheetView: View{
