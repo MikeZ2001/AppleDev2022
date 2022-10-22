@@ -8,6 +8,11 @@
 import SwiftUI
 import Charts
 
+struct ValuePerCategory {
+    var dayNumber: String
+    var moodCategory: String
+}
+
 struct MoodView: View {
     
         let userEmotion: [ValuePerCategory] = [
