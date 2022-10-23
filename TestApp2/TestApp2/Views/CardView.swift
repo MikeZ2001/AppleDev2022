@@ -19,22 +19,25 @@ struct CardView: View {
     
     @State var showingSheet = false
     
+    var cardModel = CardModel()
+    
     
     var body: some View {
         
       
         VStack {
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.teal)
+                .fill(Color("CardBackgroundColor"))
                 .frame(maxWidth: .infinity,maxHeight: .infinity)
                 .overlay(
                     VStack(alignment: .leading){
                         //Card Date
                         Text(cardDate)
                             .fontWeight(.black)
+                            .font(Font.custom("Helvetica Neue", size: 38.0))
                             .multilineTextAlignment(.leading)
-                            .padding(.top)
-                            .padding(.leading)
+                            .padding()
+                           
                      
                         HStack {
                             
@@ -49,8 +52,10 @@ struct CardView: View {
                             .cornerRadius(10)
                              */
                             
-                            ImagePickerAndPhotoView()
-                
+                           // ImagePickerAndPhotoView()
+                            //PhotoPickerView(cardModel: cardModel)
+                            
+                            SingleImagePickerView()
                    
                             
                             
@@ -62,17 +67,18 @@ struct CardView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .bold()
-                                .frame(maxWidth: .infinity)
+                                .frame(maxWidth: .infinity,maxHeight: .infinity)
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
                                 .foregroundColor(Color.white)
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
-                                .clipShape(Capsule())
+                                .clipShape(Circle())
                             }.sheet(isPresented: $showingSheet){
                                 SheetView()
                                   
                             }
                             
-                        }.frame(maxWidth: .infinity).frame(maxHeight: .infinity)
+                        }
+                            .padding()
                        
                         
                         

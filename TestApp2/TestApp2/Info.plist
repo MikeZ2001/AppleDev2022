@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	    
+    <key>NSCameraUsageDescription</key>
+        <string>The program wants to access the camera so you can use your photos and camera in this photo editor.</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>The program wants to access the photo gallery so you can use your photos and camera in this photo editor.</string>
+</dict>
+</plist>

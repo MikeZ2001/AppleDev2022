@@ -53,8 +53,7 @@ struct ImagePickerAndPhotoView: View {
                
             ) {
                 
-                Text("Pick a photo")
-               
+                //Text("Pick a photo").buttonStyle(zz)
                 Button {
                 } label: {
                   Text("Pick a photo ")

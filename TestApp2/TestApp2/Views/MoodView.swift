@@ -33,6 +33,7 @@ struct MoodView: View {
             x: .value("Category", currentUserEmotion.dayNumber),
             y: .value("Value", currentUserEmotion.moodCategory)
             ).foregroundStyle(Color.black)
+                    .symbolSize(150)
             }
         }.padding(.bottom,300).padding(.leading,60).padding(.trailing,60)
     }

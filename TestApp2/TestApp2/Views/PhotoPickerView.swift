@@ -11,14 +11,18 @@ import PhotosUI
 struct PhotoPickerView: View {
     
     @ObservedObject var cardModel: CardModel
+    
     var body: some View {
         CircularPhotoImage(imageState: cardModel.imageState)
             .overlay(alignment: .bottomTrailing){
-                PhotosPicker(selection: $cardModel.imageSelection, matching: .images){
-                    Image(systemName: "pencil.circle.fill")
-                        .symbolRenderingMode(.multicolor)
-                        .font(.system(size:30))
-                        .foregroundColor(.accentColor)
+                PhotosPicker(selection: $cardModel.imageSelection,
+                             matching: .any(of: [.images]),
+                             photoLibrary: .shared()){
+                    Image(systemName: "plus")
+                        .frame(width: 60, height: 60)
+                        .foregroundColor(.white)
+                        .background(Color.gray)
+                        .clipShape(Circle())
                     
                 }.buttonStyle(.borderless)
             }
@@ -30,7 +34,7 @@ struct CircularPhotoImage: View{
     
     var body: some View{
         ProfileImage(imageState: imageState)
-            .frame(width: 100,height: 100)
+            .frame(width: 200,height: 200)
             .clipShape(Circle())
             .background {
                 Circle().fill(
@@ -53,11 +57,11 @@ struct ProfileImage: View{
     var body: some View{
         switch imageState {
         case .success(let image):
-            image.resizable().scaledToFill()
+            image.resizable().scaledToFit()
         case .loading:
             ProgressView()
         case .empty:
-            Image(systemName: "person.fill")
+            Image(systemName: "camera")
                 .font(.system(size:40))
                 .foregroundColor(.white)
         case .failure:
@@ -69,9 +73,11 @@ struct ProfileImage: View{
     
 }
 
+
+
 struct PhotoPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        var cardModel: CardModel = CardModel()
+        let cardModel: CardModel = CardModel()
         PhotoPickerView(cardModel: cardModel )
     }
 }

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		043A0A732902F4E900DE6912 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A0A722902F4E900DE6912 /* CalendarView.swift */; };
 		043A0A752902F50000DE6912 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A0A742902F50000DE6912 /* MoodView.swift */; };
+		04445EBF29052C9900E80C02 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EBE29052C9900E80C02 /* ImagePickerViewModel.swift */; };
+		04445EC129052CB100E80C02 /* SingleImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC029052CB100E80C02 /* SingleImagePickerView.swift */; };
+		04445EC32905407E00E80C02 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC22905407E00E80C02 /* Card.swift */; };
+		04445EC52905416C00E80C02 /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC42905416C00E80C02 /* Emotions.swift */; };
+		04445EC72905473C00E80C02 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC62905473C00E80C02 /* Color.swift */; };
 		04AF05D82903DB5D003A9A27 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF05D72903DB5D003A9A27 /* CardView.swift */; };
 		04AF05DA2903DBCF003A9A27 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF05D92903DBCF003A9A27 /* SheetView.swift */; };
 		04AF05DC2903EA0B003A9A27 /* ImagePickerAndPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF05DB2903EA0B003A9A27 /* ImagePickerAndPhotoView.swift */; };
@@ -41,8 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04305CDB29042D1700A534EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		043A0A722902F4E900DE6912 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		043A0A742902F50000DE6912 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
+		04445EBE29052C9900E80C02 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
+		04445EC029052CB100E80C02 /* SingleImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImagePickerView.swift; sourceTree = "<group>"; };
+		04445EC22905407E00E80C02 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		04445EC42905416C00E80C02 /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
+		04445EC62905473C00E80C02 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04AF05D72903DB5D003A9A27 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		04AF05D92903DBCF003A9A27 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		04AF05DB2903EA0B003A9A27 /* ImagePickerAndPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerAndPhotoView.swift; sourceTree = "<group>"; };
@@ -88,7 +99,8 @@
 		04359D6029018560002D1AE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				04AF05DF2903FD69003A9A27 /* CardModel.swift */,
+				04445EC22905407E00E80C02 /* Card.swift */,
+				04445EC42905416C00E80C02 /* Emotions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,6 +115,8 @@
 				04AF05D92903DBCF003A9A27 /* SheetView.swift */,
 				04AF05DB2903EA0B003A9A27 /* ImagePickerAndPhotoView.swift */,
 				04AF05DD2903FD1E003A9A27 /* PhotoPickerView.swift */,
+				04445EC029052CB100E80C02 /* SingleImagePickerView.swift */,
+				04445EC62905473C00E80C02 /* Color.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +124,8 @@
 		043A0A762902F50700DE6912 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04AF05DF2903FD69003A9A27 /* CardModel.swift */,
+				04445EBE29052C9900E80C02 /* ImagePickerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -137,6 +153,7 @@
 		04E5EAB628FD404F00A1D878 /* TestApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				04305CDB29042D1700A534EF /* Info.plist */,
 				043A0A762902F50700DE6912 /* ViewModel */,
 				04359D6129018569002D1AE4 /* Views */,
 				04359D6029018560002D1AE4 /* Models */,
@@ -307,7 +324,12 @@
 				04E5EABA28FD404F00A1D878 /* MainView.swift in Sources */,
 				04AF05DE2903FD1E003A9A27 /* PhotoPickerView.swift in Sources */,
 				04E5EAB828FD404F00A1D878 /* TestApp2App.swift in Sources */,
+				04445EC129052CB100E80C02 /* SingleImagePickerView.swift in Sources */,
 				04AF05E02903FD69003A9A27 /* CardModel.swift in Sources */,
+				04445EC32905407E00E80C02 /* Card.swift in Sources */,
+				04445EC52905416C00E80C02 /* Emotions.swift in Sources */,
+				04445EC72905473C00E80C02 /* Color.swift in Sources */,
+				04445EBF29052C9900E80C02 /* ImagePickerViewModel.swift in Sources */,
 				043A0A732902F4E900DE6912 /* CalendarView.swift in Sources */,
 				04AF05DA2903DBCF003A9A27 /* SheetView.swift in Sources */,
 				043A0A752902F50000DE6912 /* MoodView.swift in Sources */,
@@ -472,6 +494,10 @@
 				DEVELOPMENT_TEAM = FQJLMFAWS6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestApp2/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) Need Library Access to put a photo in his card";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +527,10 @@
 				DEVELOPMENT_TEAM = FQJLMFAWS6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestApp2/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) Need Library Access to put a photo in his card";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
