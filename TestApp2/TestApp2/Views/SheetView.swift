@@ -106,9 +106,9 @@ struct SheetView: View{
             }.padding()
             
             HStack{
-                Text("Relaxed")
+                Text("Distracted")
                 Spacer()
-                Text("Stressed")
+                Text("Focused")
             }.padding(.trailing)
                 .padding(.leading)
                 
@@ -145,7 +145,6 @@ struct CurrentDotView: View {
                 .resizable()
                 .scaledToFit()
                 .bold()
-                .foregroundColor(.myColor)
                 .background(currentColor)
                 .clipShape(Capsule())
         }

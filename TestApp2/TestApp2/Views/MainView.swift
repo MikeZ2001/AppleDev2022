@@ -31,8 +31,7 @@ struct MainView: View {
     var body: some View {
         VStack (alignment: .leading) {
             Text(".AppName.")
-                .font(Font.custom("SFMono", size: 48))
-                .multilineTextAlignment(.leading)
+                .font(Font.custom("SFMono", size: 40))
                 .padding(.leading)
                 .fontWeight(.bold)
                 //.padding(.top)
@@ -56,9 +55,7 @@ struct MainView: View {
         
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardView(cardDate: "04/06/2023",photoName:"DogImage")
-                        .padding()
-                    
+                    CardView()
                 }
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){

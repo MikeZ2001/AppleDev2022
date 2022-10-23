@@ -10,8 +10,7 @@ import SwiftUI
 
 //Card Layout
 struct CardView: View {
-    let cardDate: String
-    let photoName : String
+   
    
     
     @State var myInput1: String = ""
@@ -24,40 +23,17 @@ struct CardView: View {
     
     var body: some View {
         
-      
-        VStack {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color("CardBackgroundColor"))
-                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                .overlay(
                     VStack(alignment: .leading){
                         //Card Date
-                        Text(cardDate)
+                        Text("24/03/2022")
                             .fontWeight(.black)
                             .font(Font.custom("Helvetica Neue", size: 38.0))
                             .multilineTextAlignment(.leading)
                             .padding()
-                           
-                     
-                        HStack {
                             
-                            /*
-                            
-                        //Image of the day
-                        Image(photoName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(.leading)
-                            .cornerRadius(10)
-                             */
-                            
-                           // ImagePickerAndPhotoView()
-                            //PhotoPickerView(cardModel: cardModel)
-                            
-                            SingleImagePickerView()
-                   
-                            
+                        HStack (alignment: .center) {
+    
+                        SingleImagePickerView()
                             
                        //Button emotions of the day
                             Button(action: {
@@ -67,21 +43,17 @@ struct CardView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .bold()
-                                .frame(maxWidth: .infinity,maxHeight: .infinity)
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
                                 .foregroundColor(Color.white)
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
                                 .clipShape(Circle())
                             }.sheet(isPresented: $showingSheet){
                                 SheetView()
-                                  
                             }
                             
-                        }
-                            .padding()
-                       
-                        
-                        
+                        }.frame(maxWidth: .infinity)
+                        .padding()
+                            
                        //Stack centered elements
                         
                             //Song of the day
@@ -104,32 +76,19 @@ struct CardView: View {
                                 .padding(.bottom)
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
                         
-                      
                         
-                        //Generate Card Button
-                        VStack(alignment: .center) {
-                                   Button(action: {}){
-                                       Text("Generate Card")
-                                       .bold()
-                                       .font(Font.custom("Helvetica Neue", size: 24.0))
-                                       .padding(20)
-                                       .foregroundColor(Color.white)
-                                       .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
-                                       .cornerRadius(12)
-                                       .clipShape(Capsule())
-                                   }
-                        }.frame(maxWidth: .infinity).padding(.bottom)
-                        
+                    }.background{
+                        RoundedRectangle(cornerRadius: 30)
+                            .foregroundColor(Color("NormalColor"))
                     }
+                    .padding()
                    
-                    
-            )
         }
     }
-}
+
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(cardDate: "04/06/2023",photoName:"DogImage")
+        CardView()
     }
 }

@@ -21,7 +21,7 @@ struct SingleImagePickerView: View {
                                  matching: .any(of: [.images]),
                                  photoLibrary: .shared()){
                         Image(systemName: "plus")
-                            .frame(width: 60, height: 60)
+                            .frame(width: 50, height: 50)
                             .foregroundColor(.white)
                             .background(Color.gray)
                             .clipShape(Circle())
@@ -39,10 +39,10 @@ struct UserPhotoOfTheDay: View{
     
     var body: some View{
         UserImageStates(imageState: imageState)
-            .frame(width: 200,height: 200)
-            .clipShape(Circle())
+            .frame(width: 200,height: 220)
+            .clipShape(Rectangle())
             .background {
-                Circle().fill(
+                Rectangle().fill(
                 LinearGradient(
                     colors: [.yellow, .orange],
                     startPoint: .top,
