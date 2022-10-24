@@ -66,8 +66,10 @@ struct MainView: View {
                 }
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
-                    
-                    CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture ) )
+                    ScrollView {
+                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture ) )
+                        
+                    }
                       .padding()
                     
                 }
