@@ -46,6 +46,3 @@ var distractedFocusedNormalEmotion = Emotion(size: 30, color: Color("DistractedF
 var quiteFocusedEmotion = Emotion(size: 40, color: Color("QuiteFocusedColor"))
 var focusedEmotion = Emotion(size: 50, color: Color("FocusedColor"))
 
-
-
-var emotionGroup: [Emotion] = [quiteDistractedEmotion,distractedEmotion]

@@ -10,14 +10,14 @@ import PhotosUI
 
 struct SingleImagePickerView: View {
     
-    @StateObject var imagePickerViewModel = ImagePickerViewModel()
+    @StateObject var cardModel: CardModel
     
     var body: some View {
         VStack{
         
-            UserPhotoOfTheDay(imageState: imagePickerViewModel.imageState)
+            UserPhotoOfTheDay(imageState: cardModel.imageState)
                 .overlay(alignment: .bottomTrailing){
-                    PhotosPicker(selection: $imagePickerViewModel.imageSelection,
+                    PhotosPicker(selection: $cardModel.imageSelection,
                                  matching: .any(of: [.images]),
                                  photoLibrary: .shared()){
                         Image(systemName: "plus")
@@ -35,7 +35,7 @@ struct SingleImagePickerView: View {
     }
 
 struct UserPhotoOfTheDay: View{
-    let imageState: ImagePickerViewModel.ImageState
+    let imageState: CardModel.ImageState
     
     var body: some View{
         UserImageStates(imageState: imageState)
@@ -56,7 +56,7 @@ struct UserPhotoOfTheDay: View{
 
 struct UserImageStates: View{
     
-    let imageState: ImagePickerViewModel.ImageState
+    let imageState: CardModel.ImageState
     
     var body: some View{
         switch imageState {
@@ -80,6 +80,6 @@ struct UserImageStates: View{
 
 struct SingleImagePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleImagePickerView()
+        SingleImagePickerView(cardModel: CardModel())
     }
 }

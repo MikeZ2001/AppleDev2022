@@ -9,10 +9,10 @@ import SwiftUI
 
 struct Card{
     
-    var date: Date
+    var date: String
     var image: Image
     var songOfTheDay: String
     var thoughtOfTheDay: String
-    var emotions: [Emotion]
+    var emotions: Array<Emotion?>
     
 }

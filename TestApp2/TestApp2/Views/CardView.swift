@@ -10,16 +10,13 @@ import SwiftUI
 
 //Card Layout
 struct CardView: View {
-   
-   
-    
+
     @State var myInput1: String = ""
     @State var myInput2: String = ""
     
     @State var showingSheet = false
     
-    var cardModel = CardModel()
-    
+    var cardModel: CardModel
     
     var body: some View {
         
@@ -33,7 +30,7 @@ struct CardView: View {
                             
                         HStack (alignment: .center) {
     
-                        SingleImagePickerView()
+                        SingleImagePickerView(cardModel: cardModel)
                             
                        //Button emotions of the day
                             Button(action: {
@@ -48,7 +45,8 @@ struct CardView: View {
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
                                 .clipShape(Circle())
                             }.sheet(isPresented: $showingSheet){
-                                SheetView(cardModel: CardModel(),emotion: Emotion(size: 40, color: .green))
+                                SheetView(cardModel: cardModel)
+                                    
                             }
                             
                         }.frame(maxWidth: .infinity)
@@ -77,13 +75,14 @@ struct CardView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
                         
                         Spacer()
-                        Button {
+                        Button(action: {
                             cardModel.saveCard()
-                         
-                        } label: {
-                            Label("Save or Share", systemImage: "square.and.arrow.up")
-                        }
-                        .buttonStyle(.bordered)
+                        }){
+                            Label("Save", systemImage: "square.and.arrow.up")
+                            
+                                
+                        }.buttonStyle(.bordered)
+                            .padding()
                         Spacer()
                         
                         
@@ -99,6 +98,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView()
+        CardView(cardModel: CardModel())
     }
 }

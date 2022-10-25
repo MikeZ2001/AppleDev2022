@@ -8,10 +8,9 @@
 import SwiftUI
 
 
-struct SheetView: View{
-    var cardModel : CardModel
-    var emotion: Emotion
+struct SheetView: View {
     
+    var cardModel: CardModel
     
     var body: some View{
         
@@ -119,7 +118,8 @@ struct SheetView: View{
                 .padding(.leading)
              */
              
-            SaveEmotionView(cardModel: cardModel, emotion: emotion)
+            SaveEmotionView(cardModel: cardModel)
+               
             
             
         }.padding()
@@ -130,8 +130,8 @@ struct SheetView: View{
 
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
-        SheetView(cardModel: CardModel(),emotion: Emotion(size: 40, color: .red))
-        SheetView(cardModel: CardModel(),emotion: Emotion(size: 40, color: .red))
+        SheetView( cardModel: CardModel())
+        SheetView( cardModel: CardModel())
     }
 }
 
@@ -139,7 +139,8 @@ struct CurrentDotView: View {
     
     var currentColor: Color
     var currentSize: CGFloat?
-    var cardModel: CardModel
+    
+    @ObservedObject var cardModel = CardModel()
     
     var body: some View {
         Button(action: {
@@ -156,11 +157,11 @@ struct CurrentDotView: View {
 
 struct SaveEmotionView: View {
     var cardModel: CardModel
-    var emotion: Emotion
+   
     
     var body: some View {
         Button(action: {
-             cardModel.createEmotion(emotion: emotion)
+             cardModel.createEmotion()
         }){
             Label("Save", systemImage: "square.and.arrow.up")
             

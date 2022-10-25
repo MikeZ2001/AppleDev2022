@@ -10,7 +10,7 @@ import PhotosUI
 
 //We will use this class to pick a photo from our library transform it and assign it to an image to be displayed in the card
 
-class ImagePickerViewModel: ObservableObject{
+class Ciao: ObservableObject{
     
     enum ImageState {
         case empty
@@ -36,6 +36,8 @@ class ImagePickerViewModel: ObservableObject{
             if let data = try await imageSelection?.loadTransferable(type: Data.self){
                 if let uiImage = UIImage(data: data){
                     self.image = Image(uiImage: uiImage)
+                    
+                    //take information of the photo
                     imageState = .success(image)
                 }
             }

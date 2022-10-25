@@ -9,11 +9,18 @@ import SwiftUI
 
 @main
 struct TestApp2App: App {
+    
+    // TODO: Create the MODEL as environment object
+    
+    //@EnvironmentObject var cardModel: CardModel
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
             
-      
+            MainView()
+                
+        
+            // provide the model as environment object
         }
     }
 }

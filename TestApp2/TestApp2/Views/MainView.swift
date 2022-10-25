@@ -28,6 +28,8 @@ struct MainView: View {
     
     @State var segmentationSelection : AppSection = .MyCard
     
+    @ObservedObject var cardModel = CardModel()
+    
     var body: some View {
         VStack (alignment: .leading) {
             Text(".AppName.")
@@ -55,7 +57,8 @@ struct MainView: View {
         
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardView()
+                    CardView(cardModel: cardModel)
+                    
                 }
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
