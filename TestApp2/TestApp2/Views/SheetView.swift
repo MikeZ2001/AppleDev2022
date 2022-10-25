@@ -9,6 +9,9 @@ import SwiftUI
 
 
 struct SheetView: View{
+    var cardModel : CardModel
+    var emotion: Emotion
+    
     
     var body: some View{
         
@@ -24,11 +27,11 @@ struct SheetView: View{
             
             // Calm/Energized HStack
             HStack{
-                CurrentDotView(currentColor: Color("DistractedColor"))
-                CurrentDotView(currentColor: Color("QuiteDistractedColor"))
-                CurrentDotView(currentColor: Color("NormalColor"))
-                CurrentDotView(currentColor: Color("QuiteFocusedColor"))
-                CurrentDotView(currentColor: Color("FocusedColor"))
+                CurrentDotView(currentColor: calmEmotion.color,currentSize: calmEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteCalmEmotion.color,currentSize: quiteCalmEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: NormalColorCalmEnergizedEmotion.color,currentSize: NormalColorCalmEnergizedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteEnergizedEmotion.color,currentSize: quiteEnergizedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: energizedEmotion.color,currentSize: energizedEmotion.size,cardModel: cardModel)
             }.padding()
          
            
@@ -40,14 +43,16 @@ struct SheetView: View{
             }.padding(.trailing)
              .padding(.leading)
             
-            //Cheerful/Sensitive HStack
             
+            //Cheerful/Sensitive HStack
             HStack{
-                CurrentDotView(currentColor: Color("DistractedColor"))
-                CurrentDotView(currentColor: Color("QuiteDistractedColor"))
-                CurrentDotView(currentColor: Color("NormalColor"))
-                CurrentDotView(currentColor: Color("QuiteFocusedColor"))
-                CurrentDotView(currentColor: Color("FocusedColor"))
+           
+                CurrentDotView(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size,cardModel: cardModel)
+               
             }.padding()
             
             HStack {
@@ -65,11 +70,11 @@ struct SheetView: View{
             // Insecure - Self Confident HStack
             
             HStack{
-                CurrentDotView(currentColor: Color("InsecureColor"))
-                CurrentDotView(currentColor: Color("QuiteInsecureColor"))
-                CurrentDotView(currentColor: Color("NormalColor"))
-                CurrentDotView(currentColor: Color("QuiteSelfConfidentColor"))
-                CurrentDotView(currentColor: Color("SelfConfidentColor"))
+                CurrentDotView(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteInsecureEmotion.color,currentSize: quiteInsecureEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size,cardModel: cardModel)
             }.padding()
             
             HStack {
@@ -82,11 +87,11 @@ struct SheetView: View{
             //Relaxed - Stressed HStack
             
             HStack{
-                CurrentDotView(currentColor: Color("DistractedColor"))
-                CurrentDotView(currentColor: Color("QuiteDistractedColor"))
-                CurrentDotView(currentColor: Color("NormalColor"))
-                CurrentDotView(currentColor: Color("QuiteFocusedColor"))
-                CurrentDotView(currentColor: Color("FocusedColor"))
+                CurrentDotView(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size,cardModel: cardModel).padding()
+                CurrentDotView(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size,cardModel: cardModel).padding()
+                CurrentDotView(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size,cardModel: cardModel).padding()
             }.padding()
             
             HStack {
@@ -98,28 +103,24 @@ struct SheetView: View{
                 .padding(.leading)
             
             HStack{
-                CurrentDotView(currentColor: Color("DistractedColor"))
-                CurrentDotView(currentColor: Color("QuiteDistractedColor"))
-                CurrentDotView(currentColor: Color("NormalColor"))
-                CurrentDotView(currentColor: Color("QuiteFocusedColor"))
-                CurrentDotView(currentColor: Color("FocusedColor"))
+                CurrentDotView(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: quiteFocusedEmotion.color,currentSize: quiteFocusedEmotion.size,cardModel: cardModel)
+                CurrentDotView(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size,cardModel: cardModel)
             }.padding()
             
+            /*
             HStack{
                 Text("Distracted")
                 Spacer()
                 Text("Focused")
             }.padding(.trailing)
                 .padding(.leading)
-                
-         
+             */
+             
+            SaveEmotionView(cardModel: cardModel, emotion: emotion)
             
-           
-            
-            
-        
-            
-
             
         }.padding()
             
@@ -129,24 +130,43 @@ struct SheetView: View{
 
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
-        SheetView()
+        SheetView(cardModel: CardModel(),emotion: Emotion(size: 40, color: .red))
+        SheetView(cardModel: CardModel(),emotion: Emotion(size: 40, color: .red))
     }
 }
 
 struct CurrentDotView: View {
     
     var currentColor: Color
+    var currentSize: CGFloat?
+    var cardModel: CardModel
     
     var body: some View {
         Button(action: {
-            
+            cardModel.addEmotion(emotion: Emotion(size: currentSize,color: currentColor))
+          
         }){
-            Image("AppIcon")
-                .resizable()
-                .scaledToFit()
-                .bold()
-                .background(currentColor)
-                .clipShape(Capsule())
+            Circle()
+                .foregroundColor(currentColor)
+                .frame(width: currentSize,height: currentSize)
+            
         }
+    }
+}
+
+struct SaveEmotionView: View {
+    var cardModel: CardModel
+    var emotion: Emotion
+    
+    var body: some View {
+        Button(action: {
+             cardModel.createEmotion(emotion: emotion)
+        }){
+            Label("Save", systemImage: "square.and.arrow.up")
+            
+                
+        }.buttonStyle(.bordered)
+            .padding()
+
     }
 }

@@ -13,19 +13,7 @@ struct TestApp2App: App {
         WindowGroup {
             MainView()
             
-            Spacer()
-            Button {
-                //GeneratedCard.toPNG
-                let activityVC = UIActivityViewController(activityItems: [CardView().toPNG()], applicationActivities: nil)
-                   let scenes = UIApplication.shared.connectedScenes
-                   let windowScene = scenes.first as? UIWindowScene
-                    
-                   windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
-            } label: {
-                Label("Save or Share", systemImage: "square.and.arrow.up")
-            }
-            .buttonStyle(.bordered)
-            Spacer()
+      
         }
     }
 }

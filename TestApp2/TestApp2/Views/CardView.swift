@@ -23,7 +23,7 @@ struct CardView: View {
     
     var body: some View {
         
-                    VStack(alignment: .leading){
+                    VStack{
                         //Card Date
                         Text("24/03/2022")
                             .fontWeight(.black)
@@ -48,7 +48,7 @@ struct CardView: View {
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
                                 .clipShape(Circle())
                             }.sheet(isPresented: $showingSheet){
-                                SheetView()
+                                SheetView(cardModel: CardModel(),emotion: Emotion(size: 40, color: .green))
                             }
                             
                         }.frame(maxWidth: .infinity)
@@ -75,6 +75,16 @@ struct CardView: View {
                                 .padding(.trailing, 13)
                                 .padding(.bottom)
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
+                        
+                        Spacer()
+                        Button {
+                            cardModel.saveCard()
+                         
+                        } label: {
+                            Label("Save or Share", systemImage: "square.and.arrow.up")
+                        }
+                        .buttonStyle(.bordered)
+                        Spacer()
                         
                         
                     }.background{

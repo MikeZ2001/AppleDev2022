@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-enum Emotion{
-    
-        case Calm
-        case Energized
-}
-
-
 struct Card{
     
     var date: Date
