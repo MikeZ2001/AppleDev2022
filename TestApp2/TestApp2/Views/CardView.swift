@@ -15,6 +15,12 @@ struct CardView: View {
     @State var myInput2: String = ""
     
     @State var showingSheet = false
+    @State var alertSheet = false
+    
+    @State var alertText:String = ""
+    @State var saveCardAlertText: String = "Card Saved"
+    
+    @State var saveCardAlertSheet = false
     
     var cardModel: CardModel
     
@@ -22,7 +28,7 @@ struct CardView: View {
         
                     VStack{
                         //Card Date
-                        Text("24/03/2022")
+                        Text(Date.getCurrentDate())
                             .fontWeight(.black)
                             .font(Font.custom("Helvetica Neue", size: 38.0))
                             .multilineTextAlignment(.leading)
@@ -45,10 +51,39 @@ struct CardView: View {
                                 .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
                                 .clipShape(Circle())
                             }.sheet(isPresented: $showingSheet){
-                                SheetView(cardModel: cardModel)
-                                    
+                                NavigationView {
+                                    SheetView(cardModel: cardModel)
+                                        .toolbar {
+                                            Button(action: {
+                                                
+                                                if(cardModel.saveEmotions()){
+                                                    //Se il salvataggio va a buon fine emotion sheet dismiss alert sheet show else alert sheet input all the emotionù
+                                                    alertText = "Emotions saved"
+                                                      alertSheet.toggle()
+                                                    
+                                                   
+                                                }
+                                                else{
+                                                    alertText = "All the emotions should be selected"
+                                                    alertSheet.toggle()
+                                                    
+                                                }
+                                               
+                                            }) {
+                                                  Text("Save")
+                                                    
+                                                   
+                                                }.alert(alertText, isPresented: $alertSheet) {
+                                                    Button("Continue"){
+                                                        if(cardModel.saveEmotions()){
+                                                            showingSheet.toggle()
+                                                        }
+                                                    }
+                                                }
+                                        }
+                                }
                             }
-                            
+                                    
                         }.frame(maxWidth: .infinity)
                         .padding()
                             
@@ -76,13 +111,24 @@ struct CardView: View {
                         
                         Spacer()
                         Button(action: {
-                            cardModel.saveCard()
+                            cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2)
+                            
+                            //if card is saved correctly
+                            saveCardAlertSheet.toggle()
                         }){
                             Label("Save", systemImage: "square.and.arrow.up")
+                                .alert(saveCardAlertText, isPresented: $saveCardAlertSheet) {
+                                    Button("Continue"){
+                                        
+                                        //Set default fields
+                                    }
+                                }
                             
                                 
                         }.buttonStyle(.bordered)
                             .padding()
+                            
+                            
                         Spacer()
                         
                         
@@ -98,6 +144,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(cardModel: CardModel())
+        CardView(alertText: " ",cardModel: CardModel())
     }
 }

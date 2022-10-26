@@ -62,9 +62,7 @@ class CardModel: ObservableObject{
     
     
     //Function for the emotion sheet
-  
-    
-    func saveCard(){
+    func saveCard(songOfTheDay: String,thoughtOfTheDay: String){
         
         /*
         //Share action sheet
@@ -77,24 +75,27 @@ class CardModel: ObservableObject{
         //group all in one object card (image,emotion,card info)
          */
         
-        currentCard = Card(date: "24/12/2020",image: image,songOfTheDay: "ascjkbnanc",thoughtOfTheDay: "dasdsf",emotions: savedEmotion)
+        currentCard = Card(date: Date.getCurrentDate(),image: image,songOfTheDay: songOfTheDay,thoughtOfTheDay: thoughtOfTheDay,emotions: savedEmotion)
         
         print("Current Card:   \(String(describing: currentCard))")
     }
     
-    func createEmotion(){
+    
+    func saveEmotions() -> Bool{
         
         print(savedEmotion)
         if(savedEmotion[0] != nil && savedEmotion[2] != nil && savedEmotion[3] != nil && savedEmotion[4] != nil){
             
             //Salva informazioni in qualcosa (Db locale,File,Array)
+        print(savedEmotion)
             
-            self.cardEmotion = savedEmotion
-            print(savedEmotion)
+            return true
         }
         else
         {
             print("Devono essere selezionate tutte le emozioni")
+            return false
+            
         }
     }
     
@@ -147,7 +148,18 @@ class CardModel: ObservableObject{
         
     }
     
-    
-    
+}
+
+extension Date {
+
+ static func getCurrentDate() -> String {
+
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+
+        return dateFormatter.string(from: Date())
+
+    }
 }
     

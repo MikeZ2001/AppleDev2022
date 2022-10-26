@@ -12,9 +12,19 @@ struct SheetView: View {
     
     var cardModel: CardModel
     
+    @Environment(\.presentationMode) private var presentationMode
+    
     var body: some View{
         
         VStack{
+            /*
+            Button(action: {
+                
+                
+            }) {
+                Text("Done")
+            }
+             */
         
             /*
                 Text("How do you feel today?")
@@ -22,6 +32,15 @@ struct SheetView: View {
                 .font(Font.custom("SF Mono", size: 34.0))
 
              */
+            
+            /*
+            Button(action: {
+                   self.presentationMode.wrappedValue.dismiss()
+                }) {
+                  Text("Dismiss")
+                }
+             */
+            
             
             
             // Calm/Energized HStack
@@ -65,6 +84,8 @@ struct SheetView: View {
                 
             }.padding(.trailing)
                 .padding(.leading)
+             
+             
             
             // Insecure - Self Confident HStack
             
@@ -118,6 +139,7 @@ struct SheetView: View {
                 .padding(.leading)
              */
              
+             
             SaveEmotionView(cardModel: cardModel)
                
             
@@ -140,17 +162,22 @@ struct CurrentDotView: View {
     var currentColor: Color
     var currentSize: CGFloat?
     
+    @State var isExpanded: Bool = false
+    
+    
     @ObservedObject var cardModel = CardModel()
     
     var body: some View {
         Button(action: {
             cardModel.addEmotion(emotion: Emotion(size: currentSize,color: currentColor))
+            
+                isExpanded = true
           
         }){
             Circle()
                 .foregroundColor(currentColor)
                 .frame(width: currentSize,height: currentSize)
-            
+                
         }
     }
 }
@@ -161,7 +188,7 @@ struct SaveEmotionView: View {
     
     var body: some View {
         Button(action: {
-             cardModel.createEmotion()
+             cardModel.saveEmotions()
         }){
             Label("Save", systemImage: "square.and.arrow.up")
             
