@@ -12,7 +12,12 @@ struct SheetView: View {
     
     var cardModel: CardModel
     
+    
+    
     @Environment(\.presentationMode) private var presentationMode
+    
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View{
         
@@ -169,7 +174,9 @@ struct CurrentDotView: View {
     
     var body: some View {
         Button(action: {
+            
             cardModel.addEmotion(emotion: Emotion(size: currentSize,color: currentColor))
+            //CoreDataCardModel().addEmotion(emotion: Emotion(size: currentSize,color: currentColor))
             
                 isExpanded = true
           
@@ -188,7 +195,7 @@ struct SaveEmotionView: View {
     
     var body: some View {
         Button(action: {
-             cardModel.saveEmotions()
+             //cardModel.saveEmotions()
         }){
             Label("Save", systemImage: "square.and.arrow.up")
             

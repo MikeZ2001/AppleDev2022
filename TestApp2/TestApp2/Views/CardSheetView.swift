@@ -1,4 +1,13 @@
 //
+//  CardSheetView.swift
+//  TestApp2
+//
+//  Created by Michele Zurlo on 27/10/22.
+//
+
+import SwiftUI
+
+//
 //  CardLayout.swift
 //  TestApp2
 //
@@ -9,25 +18,17 @@ import Foundation
 import SwiftUI
 
 //Card Layout
-struct CardView: View {
+struct CardSheetView: View {
 
-    @State var myInput1: String = ""
-    @State var myInput2: String = ""
+
     
     @State var showingSheet = false
     @State var alertSheet = false
-    
-    @State var alertText:String = ""
-    @State var saveCardAlertText: String = "Card Saved"
-    
-    @State var saveCardAlertSheet = false
     
     var cardModel: CardModel
     
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
     
     var body: some View {
         
@@ -57,33 +58,26 @@ struct CardView: View {
                                 .clipShape(Circle())
                             }.sheet(isPresented: $showingSheet){
                                 NavigationView {
-                                    SheetView(cardModel: cardModel)
+                                    GeneratedCardEmotionSheetView(cardModel: cardModel)
                                         .toolbar {
                                             Button(action: {
                                                 
                                                 if(cardModel.saveEmotions(context: managedObjectContext)){
                                                     //Se il salvataggio va a buon fine emotion sheet dismiss alert sheet show else alert sheet input all the emotionù
-                                                    alertText = "Emotions saved"
-                                                      alertSheet.toggle()
+                                                  
+                                                      //alertSheet.toggle()
                                                     
                                                    
                                                 }
                                                 else{
-                                                    alertText = "All the emotions should be selected"
-                                                    alertSheet.toggle()
+                                                  //  alertSheet.toggle()
                                                     
                                                 }
                                                
                                             }) {
-                                                  Text("Save")
+                                                  Text("Edit")
                                                     
                                                    
-                                                }.alert(alertText, isPresented: $alertSheet) {
-                                                    Button("Continue"){
-                                                        if(cardModel.saveEmotions(context: managedObjectContext)){
-                                                            showingSheet.toggle()
-                                                        }
-                                                    }
                                                 }
                                         }
                                 }
@@ -98,7 +92,7 @@ struct CardView: View {
                             Text("What song represents you today? ")
                                 .padding(.top)
                                 .padding(.leading)
-                            TextField("Write a song...", text: $myInput1)
+                            Text("Azzurro")
                                 .padding(.leading, 13)
                                 .padding(.trailing, 13)
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
@@ -108,7 +102,7 @@ struct CardView: View {
                                 .padding(.top)
                                 .padding(.leading)
                             
-                            TextField("Write your thoughts...", text: $myInput2)
+                            Text("My daily thoughts are ...")
                                 .padding(.leading, 13)
                                 .padding(.trailing, 13)
                                 .padding(.bottom)
@@ -116,19 +110,15 @@ struct CardView: View {
                         
                         Spacer()
                         Button(action: {
-                            cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
+                            
+                            //Share card only
                             
                             //CoreDataCardModel().saveData(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
                             //if card is saved correctly
-                            saveCardAlertSheet.toggle()
+                            
                         }){
-                            Label("Save", systemImage: "square.and.arrow.up")
-                                .alert(saveCardAlertText, isPresented: $saveCardAlertSheet) {
-                                    Button("Continue"){
-                                        
-                                        //Set default fields
-                                    }
-                                }
+                            Label("Share", systemImage: "square.and.arrow.up")
+                               
                             
                                 
                         }.buttonStyle(.bordered)
@@ -150,8 +140,8 @@ struct CardView: View {
     }
 
 
-struct CardView_Previews: PreviewProvider {
+struct CardSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(alertText: " ",cardModel: CardModel())
+        CardSheetView(cardModel: CardModel())
     }
 }

@@ -26,6 +26,8 @@ struct MoodView: View {
     ]
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardEmotionData: FetchedResults<EmotionCoreDataEntity>
+    
     
     var body: some View {
         
@@ -34,7 +36,33 @@ struct MoodView: View {
         VStack {
             
             List(cardData) { item in
-                Text(item.songOfTheDay!)
+                
+                HStack{
+                    
+                    
+                    Text(item.songOfTheDay!)
+                    Spacer()
+                    Text(item.thoughtOfTheDay!)
+                    Spacer()
+                    if(item.cardDate != nil){
+                        Text(item.cardDate!)
+                    }
+                
+                }
+              
+            }
+            
+            List(cardEmotionData) { item in
+                
+                HStack{
+                    
+                    
+                    Text("\(item.size)")
+                    Spacer()
+                   
+                
+                }
+              
             }
             /*
              Chart(userEmotion, id: \.dayNumber) { currentUserEmotion in

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import PhotosUI
 import Photos
-import CoreTransferable
+import CoreData
 import UIKit
 
 class CardModel: ObservableObject{
@@ -62,7 +62,7 @@ class CardModel: ObservableObject{
     
     
     //Function for the emotion sheet
-    func saveCard(songOfTheDay: String,thoughtOfTheDay: String){
+    func saveCard(songOfTheDay: String,thoughtOfTheDay: String , context: NSManagedObjectContext){
         
         /*
         //Share action sheet
@@ -77,16 +77,58 @@ class CardModel: ObservableObject{
         
         currentCard = Card(date: Date.getCurrentDate(),image: image,songOfTheDay: songOfTheDay,thoughtOfTheDay: thoughtOfTheDay,emotions: savedEmotion)
         
+
+        //DB save
+        
+        let cardDB = CardCoreDataEntity(context: context)
+        
+        cardDB.id = UUID()
+        cardDB.cardDate = currentCard?.date
+        cardDB.songOfTheDay = currentCard?.songOfTheDay
+        cardDB.thoughtOfTheDay = currentCard?.thoughtOfTheDay
+        
+        saveDB(context: context)
+        
+      
         print("Current Card:   \(String(describing: currentCard))")
     }
     
+    func saveDB(context: NSManagedObjectContext){
+        
+        do{
+            try context.save()
+            print("Data saved")
+            
+            
+        }catch{
+            print("WE COULD NOT SAVE DATA")
+        }
+    }
     
-    func saveEmotions() -> Bool{
+    
+    func saveEmotions(context: NSManagedObjectContext) -> Bool{
         
         print(savedEmotion)
         if(savedEmotion[0] != nil && savedEmotion[2] != nil && savedEmotion[3] != nil && savedEmotion[4] != nil){
             
             //Salva informazioni in qualcosa (Db locale,File,Array)
+            
+            //Create emotion  DB Istance
+            var i: Int = 0
+            
+            var emotionsDB: Array<EmotionCoreDataEntity?> = Array(repeating: nil, count: 5)
+            
+            for emotion in savedEmotion {
+                
+               // emotionsDB[2]?.size = Float(emotion.size!)
+                
+                i = i+1
+            }
+            //Save Emotion Array in DB
+            
+            
+            saveDB(context: context)
+            
         print(savedEmotion)
             
             return true

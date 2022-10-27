@@ -73,7 +73,7 @@ struct MainView: View {
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
                     ScrollView {
-                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture ) )
+                        CalendarView()
                         
                     }
                       .padding()
