@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04134FFB2909897600239C75 /* CoreDataCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04134FFA2909897600239C75 /* CoreDataCardModel.swift */; };
+		04134FFE290989D300239C75 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04134FFC290989D300239C75 /* CoreDataModel.xcdatamodeld */; };
 		043A0A732902F4E900DE6912 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A0A722902F4E900DE6912 /* CalendarView.swift */; };
 		043A0A752902F50000DE6912 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A0A742902F50000DE6912 /* MoodView.swift */; };
 		04445EBF29052C9900E80C02 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EBE29052C9900E80C02 /* ImagePickerViewModel.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04134FFA2909897600239C75 /* CoreDataCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCardModel.swift; sourceTree = "<group>"; };
+		04134FFD290989D300239C75 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		04305CDB29042D1700A534EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		043A0A722902F4E900DE6912 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		043A0A742902F50000DE6912 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			children = (
 				04AF05DF2903FD69003A9A27 /* CardModel.swift */,
 				04445EBE29052C9900E80C02 /* ImagePickerViewModel.swift */,
+				04134FFA2909897600239C75 /* CoreDataCardModel.swift */,
+				04134FFC290989D300239C75 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -325,6 +331,8 @@
 				043A0A732902F4E900DE6912 /* CalendarView.swift in Sources */,
 				04AF05DA2903DBCF003A9A27 /* SheetView.swift in Sources */,
 				043A0A752902F50000DE6912 /* MoodView.swift in Sources */,
+				04134FFE290989D300239C75 /* CoreDataModel.xcdatamodeld in Sources */,
+				04134FFB2909897600239C75 /* CoreDataCardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +661,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04134FFC290989D300239C75 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04134FFD290989D300239C75 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 04134FFD290989D300239C75 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04E5EAAC28FD404F00A1D878 /* Project object */;
 }

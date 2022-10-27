@@ -24,6 +24,11 @@ struct CardView: View {
     
     var cardModel: CardModel
     
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
+    
     var body: some View {
         
                     VStack{
@@ -111,8 +116,9 @@ struct CardView: View {
                         
                         Spacer()
                         Button(action: {
-                            cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2)
+                           // cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2)
                             
+                            CoreDataCardModel().saveData(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
                             //if card is saved correctly
                             saveCardAlertSheet.toggle()
                         }){
@@ -130,6 +136,8 @@ struct CardView: View {
                             
                             
                         Spacer()
+                        
+                        
                         
                         
                     }.background{

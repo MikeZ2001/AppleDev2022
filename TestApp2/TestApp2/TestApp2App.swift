@@ -14,12 +14,14 @@ struct TestApp2App: App {
     
     //@EnvironmentObject var cardModel: CardModel
     
+    @StateObject private var coreDataCardModel = CoreDataCardModel()
+    
     var body: some Scene {
         WindowGroup {
             
             MainView()
-                
-        
+                .environment(\.managedObjectContext, coreDataCardModel.container.viewContext)
+            
             // provide the model as environment object
         }
     }

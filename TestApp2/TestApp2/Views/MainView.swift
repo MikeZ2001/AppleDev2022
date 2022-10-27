@@ -30,6 +30,9 @@ struct MainView: View {
     
     @ObservedObject var cardModel = CardModel()
     
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     var body: some View {
         VStack (alignment: .leading) {
             Text(".AppName.")
