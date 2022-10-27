@@ -95,7 +95,9 @@ struct CardView: View {
                        //Stack centered elements
                         
                             //Song of the day
-                            Text("What song represents you today? ")
+                        Text("What song represents you today? ")
+                            .font(.callout)
+                            .fontWeight(.bold)
                                 .padding(.top)
                                 .padding(.leading)
                             TextField("Write a song...", text: $myInput1)
@@ -104,8 +106,10 @@ struct CardView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
                             
                             //Daily thoughts
-                            Text("What are your daily thoughts?")
-                                .padding(.top)
+                        Text("What are your daily thoughts?")
+                            .font(.callout)
+                            .fontWeight(.bold)
+                            .padding(.top)
                                 .padding(.leading)
                             
                             TextField("Write your thoughts...", text: $myInput2)

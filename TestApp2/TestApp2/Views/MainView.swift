@@ -37,6 +37,7 @@ struct MainView: View {
         VStack (alignment: .leading) {
             Text(".AppName.")
                 .font(Font.custom("SFMono", size: 40))
+                .font(.title2)
                 .padding(.leading)
                 .fontWeight(.bold)
                 //.padding(.top)
@@ -80,7 +81,7 @@ struct MainView: View {
                     
                 }
                     
-            }//.padding()
+            }
             
         }.padding()
     }
