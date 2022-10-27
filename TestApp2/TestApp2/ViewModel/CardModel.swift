@@ -89,7 +89,6 @@ class CardModel: ObservableObject{
         
         saveDB(context: context)
         
-      
         print("Current Card:   \(String(describing: currentCard))")
     }
     

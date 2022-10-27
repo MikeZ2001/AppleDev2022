@@ -5,23 +5,12 @@
 //  Created by Michele Zurlo on 27/10/22.
 //
 
-import SwiftUI
-
-//
-//  CardLayout.swift
-//  TestApp2
-//
-//  Created by Michele Zurlo on 22/10/22.
-//
-
 import Foundation
 import SwiftUI
 
 //Card Layout
 struct CardSheetView: View {
 
-
-    
     @State var showingSheet = false
     @State var alertSheet = false
     
@@ -48,14 +37,13 @@ struct CardSheetView: View {
                             Button(action: {
                                 showingSheet.toggle()
                             }){
-                                Image("AppIcon")
+                                Image("fiore")
                                 .resizable()
                                 .scaledToFit()
                                 .bold()
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
-                                .foregroundColor(Color.white)
-                                .background( Color(red: 0.4612, green: 0.8392, blue: 1.0))
-                                .clipShape(Circle())
+                                
+                                
                             }.sheet(isPresented: $showingSheet){
                                 NavigationView {
                                     GeneratedCardEmotionSheetView(cardModel: cardModel)

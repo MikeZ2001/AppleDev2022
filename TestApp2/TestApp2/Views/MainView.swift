@@ -42,12 +42,7 @@ struct MainView: View {
                 .fontWeight(.bold)
                 //.padding(.top)
                 
-            
-            //To change the background of the screen
-            //Color(.green).edgesIgnoringSafeArea(.all)
-            //Color(red:0.09,green:0.63,blue:0.52) RGB
-           
-            
+                    
             VStack {
                 
                 //Segmented Control
@@ -68,8 +63,7 @@ struct MainView: View {
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
                     
                     MoodView()
-                        .padding()
-                    
+                        
                 }
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
@@ -77,8 +71,7 @@ struct MainView: View {
                         CalendarView()
                         
                     }
-                      .padding()
-                    
+                      
                 }
                     
             }

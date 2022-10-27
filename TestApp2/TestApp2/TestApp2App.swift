@@ -16,6 +16,8 @@ struct TestApp2App: App {
     
     @StateObject private var coreDataCardModel = CoreDataCardModel()
     
+    @St
+    
     var body: some Scene {
         WindowGroup {
             

@@ -48,8 +48,6 @@ class CoreDataCardModel: ObservableObject{
         card.songOfTheDay = songOfTheDay
         card.thoughtOfTheDay = thoughtOfTheDay
         
-        
-        
         saveDB(context: context)
       
     }

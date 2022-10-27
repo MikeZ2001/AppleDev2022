@@ -22,32 +22,8 @@ struct SheetView: View {
     var body: some View{
         
         VStack{
-            /*
-            Button(action: {
-                
-                
-            }) {
-                Text("Done")
-            }
-             */
-        
-            /*
-                Text("How do you feel today?")
-                    .multilineTextAlignment(.center)
-                .font(Font.custom("SF Mono", size: 34.0))
+       
 
-             */
-            
-            /*
-            Button(action: {
-                   self.presentationMode.wrappedValue.dismiss()
-                }) {
-                  Text("Dismiss")
-                }
-             */
-            
-            
-            
             // Calm/Energized HStack
             HStack{
                 CurrentDotView(currentColor: calmEmotion.color,currentSize: calmEmotion.size,cardModel: cardModel)
@@ -69,7 +45,6 @@ struct SheetView: View {
             
             //Cheerful/Sensitive HStack
             HStack{
-           
                 CurrentDotView(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size,cardModel: cardModel)
                 CurrentDotView(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size,cardModel: cardModel)
                 CurrentDotView(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size,cardModel: cardModel)
@@ -135,17 +110,18 @@ struct SheetView: View {
                 CurrentDotView(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size,cardModel: cardModel)
             }.padding()
             
-            /*
+            
             HStack{
                 Text("Distracted")
+                    .font(.subheadline)
                 Spacer()
                 Text("Focused")
             }.padding(.trailing)
                 .padding(.leading)
-             */
              
              
-            SaveEmotionView(cardModel: cardModel)
+             
+            //SaveEmotionView(cardModel: cardModel)
                
             
             
@@ -179,11 +155,26 @@ struct CurrentDotView: View {
             //CoreDataCardModel().addEmotion(emotion: Emotion(size: currentSize,color: currentColor))
             
                 isExpanded = true
+        
+                
+            
           
         }){
+            
             Circle()
                 .foregroundColor(currentColor)
                 .frame(width: currentSize,height: currentSize)
+                .overlay{
+                    
+                    
+                    
+                   
+                    isExpanded ? Circle().stroke(.gray, lineWidth: 5) : nil
+                       
+                    
+                }
+            
+               
                 
         }
     }
