@@ -87,6 +87,7 @@ class CardModel: ObservableObject{
         
         //group all in one object card (image,emotion,card info)
          */
+         
         
         currentCard = Card(date: Date.getCurrentDate(),image: image,songOfTheDay: songOfTheDay,thoughtOfTheDay: thoughtOfTheDay,emotions: savedEmotion)
         
@@ -105,6 +106,7 @@ class CardModel: ObservableObject{
         cardDB.thoughtOfTheDay = currentCard?.thoughtOfTheDay
         cardDB.imageOfTheCard = imageDB
         
+    
     
        // emotionsDB[0].id = UUID()
        // emotionsDB[0].size = CGFloat(savedEmotion[0]?.size)

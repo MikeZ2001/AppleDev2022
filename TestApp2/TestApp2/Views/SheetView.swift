@@ -12,10 +12,7 @@ struct SheetView: View {
     
     @EnvironmentObject var cardModel: CardModel
     
-    
-    
     @Environment(\.presentationMode) private var presentationMode
-    
     
     @Environment(\.managedObjectContext) var managedObjectContext
     

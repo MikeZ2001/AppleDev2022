@@ -30,7 +30,7 @@ struct GeneratedCardSheetView: View {
                             
                         HStack (alignment: .center) {
     
-                        SingleImagePickerView()
+                        SingleImagePickerView(cardModel: cardModel)
                             
                        //Button emotions of the day
                             Button(action: {

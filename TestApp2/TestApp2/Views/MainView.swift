@@ -37,12 +37,12 @@ struct MainView: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(".AppName.")
+            Text(".5Dots.")
                 .font(Font.custom("SFMono", size: 40))
                 .font(.title2)
                 .padding()
                 .fontWeight(.bold)
-                //.padding(.top)
+            
                 
                     
             VStack {
@@ -79,6 +79,9 @@ struct MainView: View {
             }
             
         }.padding()
+            
+                .background(Image("AppBackground"))
+            
     }
 }
 
