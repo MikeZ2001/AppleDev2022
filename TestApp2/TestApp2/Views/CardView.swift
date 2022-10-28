@@ -31,23 +31,26 @@ struct CardView: View {
     
     var body: some View {
         
-        ZStack{
-            
+        VStack{
+            //See rounded rectangle
+            /*
             RoundedRectangle(cornerRadius: 40)
-                
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
                                      ,startPoint: .topLeading,
                                      endPoint: .bottomTrailing))
                 .overlay(
-            
+             */
+            Spacer()
             
             //Card Date
             VStack{
+                
+                Spacer()
                 Text(Date.getCurrentDate())
-                    .font(Font.custom("Avenir-Heavy", size: 36.0))
+                    .font(Font.custom("Avenir-Heavy", size: 30.0))
                     .multilineTextAlignment(.leading)
                     .padding()
-                
+                    
                 HStack (alignment: .center) {
                     
                     SingleImagePickerView(cardModel: cardModel)
@@ -60,6 +63,7 @@ struct CardView: View {
                         Image("fiore pdf")
                             .resizable()
                             .scaledToFit()
+                            .padding()
         
                     }.sheet(isPresented: $showingSheet){
                         NavigationView {
@@ -96,60 +100,75 @@ struct CardView: View {
                     }
                     
                 }.frame(maxWidth: .infinity)
-                    .padding()
+                    
                 
                 //Stack centered elements
+            
+                        //Song of the day
+                        Text("􀑪 What song represents you today? ")
+                            .font(.callout)
+                            .fontWeight(.bold)
+                            .padding(.top)
+                            .padding(.leading)
+                        TextField("Write a song...", text: $myInput1)
+                            .padding(.leading, 13)
+                            .padding(.trailing, 13)
+                            .textFieldStyle(RoundedBorderTextFieldStyle.init())
                 
-                //Song of the day
-                Text("What song represents you today? ")
-                    .font(.callout)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                    .padding(.leading)
-                TextField("Write a song...", text: $myInput1)
-                    .padding(.leading, 13)
-                    .padding(.trailing, 13)
-                    .textFieldStyle(RoundedBorderTextFieldStyle.init())
-                
-                //Daily thoughts
-                Text("What are your daily thoughts?")
-                    .font(.callout)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                    .padding(.leading)
-                
-                TextField("Write your thoughts...", text: $myInput2)
-                    .padding(.leading, 13)
-                    .padding(.trailing, 13)
-                    .padding(.bottom)
-                    .textFieldStyle(RoundedBorderTextFieldStyle.init())
-                
-                Spacer()
-                Button(action: {
-                    cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
                     
-                    //CoreDataCardModel().saveData(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
-                    //if card is saved correctly
-                    saveCardAlertSheet.toggle()
-                }){
-                    Label("Save", systemImage: "square.and.arrow.up")
-                        .alert(saveCardAlertText, isPresented: $saveCardAlertSheet) {
-                            Button("Continue"){
-                                
-                                //Set default fields
-                            }
-                        }
-                    
-                }.buttonStyle(.bordered)
-                    .padding()
+    
                 
+               
+            
+                        //Daily thoughts
+                        Text("What are your daily thoughts?")
+                            .font(.callout)
+                            .fontWeight(.bold)
+                            .padding(.top)
+                            .padding(.leading)
+                        
+                        TextField("Write your thoughts...", text: $myInput2)
+                            .padding(.leading, 13)
+                            .padding(.trailing, 13)
+                            .textFieldStyle(RoundedBorderTextFieldStyle.init())
+                            .padding(.bottom)
+                        
                 Spacer()
                 
                 
+            }.background{
+                
+                RoundedRectangle(cornerRadius: 40)
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
+                                         ,startPoint: .topLeading,
+                                         endPoint: .bottomTrailing))
+               
+                    //.padding()
             }
-            )
-        }
-                    .padding()
+            .padding()
+                
+            
+            Spacer()
+            
+            Button(action: {
+                cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
+                
+                //CoreDataCardModel().saveData(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
+                //if card is saved correctly
+                saveCardAlertSheet.toggle()
+            }){
+                Label("Save", systemImage: "square.and.arrow.up")
+                    .alert(saveCardAlertText, isPresented: $saveCardAlertSheet) {
+                        Button("Continue"){
+                            
+                            //Set default fields
+                        }
+                    }
+                
+            }.buttonStyle(.bordered)
+                .padding()
+        }.padding()
+            
                    
         }
     }

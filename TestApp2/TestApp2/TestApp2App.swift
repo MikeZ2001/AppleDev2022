@@ -23,7 +23,7 @@ struct TestApp2App: App {
             MainView()
                 .environment(\.managedObjectContext, modelData.container.viewContext)
                 .environmentObject(modelData)
-            
+              
             // provide the model as environment object
         }
     }

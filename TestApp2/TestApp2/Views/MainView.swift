@@ -38,27 +38,24 @@ struct MainView: View {
     var body: some View {
         VStack (alignment: .leading) {
             Text(".5Dots.")
-                .font(Font.custom("SFMono", size: 40))
+                .font(Font.custom("Avenir-Heavy", size: 30))
                 .font(.title2)
-                .padding()
+                .padding(.leading)
                 .fontWeight(.bold)
             
-                
-                    
-            VStack {
-                
+
                 //Segmented Control
                 Picker("", selection: $segmentationSelection) {
                     ForEach(AppSection.allCases, id: \.self) { option in
                         Text(option.rawValue)
                     }
                 }.pickerStyle(SegmentedPickerStyle())
-                    //.padding()
+                .padding([.leading,.trailing])
                 
         
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardView()
+                    CardView().frame(width: .infinity,height: .infinity)
                     
                 }
                 
@@ -71,16 +68,17 @@ struct MainView: View {
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
                     ScrollView {
                         CalendarView()
+                            .background((Color("NormalColor")))
+                            
                         
                     }
                       
                 }
                     
-            }
             
-        }.padding()
             
-                .background(Image("AppBackground"))
+        }
+         .background(Image("AppBackground"))
             
     }
 }
