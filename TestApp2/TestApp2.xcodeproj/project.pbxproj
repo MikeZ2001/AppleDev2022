@@ -27,6 +27,7 @@
 		04E5EAC928FD405000A1D878 /* TestApp2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5EAC828FD405000A1D878 /* TestApp2Tests.swift */; };
 		04E5EAD328FD405000A1D878 /* TestApp2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5EAD228FD405000A1D878 /* TestApp2UITests.swift */; };
 		04E5EAD528FD405000A1D878 /* TestApp2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5EAD428FD405000A1D878 /* TestApp2UITestsLaunchTests.swift */; };
+		2FD4B498290C2FE90088ACED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4B497290C2FE90088ACED /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		04E5EACE28FD405000A1D878 /* TestApp2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestApp2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E5EAD228FD405000A1D878 /* TestApp2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp2UITests.swift; sourceTree = "<group>"; };
 		04E5EAD428FD405000A1D878 /* TestApp2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2FD4B497290C2FE90088ACED /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				049DFCB0290AB5730054BB73 /* CalendarView.swift */,
 				049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */,
 				049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */,
+				2FD4B497290C2FE90088ACED /* Notifications.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				04445EC32905407E00E80C02 /* Card.swift in Sources */,
 				049DFCB5290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift in Sources */,
 				0449551A2906D3C20000D632 /* Database.swift in Sources */,
+				2FD4B498290C2FE90088ACED /* Notifications.swift in Sources */,
 				04445EC52905416C00E80C02 /* Emotion.swift in Sources */,
 				043A0A732902F4E900DE6912 /* CalendarViewLogic.swift in Sources */,
 				049DFCB1290AB5730054BB73 /* CalendarView.swift in Sources */,
