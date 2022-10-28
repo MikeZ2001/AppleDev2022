@@ -12,17 +12,17 @@ struct TestApp2App: App {
     
     // TODO: Create the MODEL as environment object
     
-    //@EnvironmentObject var cardModel: CardModel
     
-    @StateObject private var coreDataCardModel = CoreDataCardModel()
+    //@StateObject private var coreDataCardModel = CoreDataCardModel()
     
-    @St
+    @StateObject private var modelData = CardModel()
     
     var body: some Scene {
         WindowGroup {
             
             MainView()
-                .environment(\.managedObjectContext, coreDataCardModel.container.viewContext)
+                .environment(\.managedObjectContext, modelData.container.viewContext)
+                .environmentObject(modelData)
             
             // provide the model as environment object
         }

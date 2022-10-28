@@ -9,12 +9,7 @@ import SwiftUI
 
 struct GeneratedCardEmotionSheetView: View {
     
-    var cardModel: CardModel
-    
-    
-    
-    @Environment(\.presentationMode) private var presentationMode
-    
+    @EnvironmentObject var cardModel: CardModel
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -32,11 +27,11 @@ struct GeneratedCardEmotionSheetView: View {
                     
             // Calm/Energized HStack
             HStack{
-                CurrentDotView2(currentColor: calmEmotion.color,currentSize: calmEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteCalmEmotion.color,currentSize: quiteCalmEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: NormalColorCalmEnergizedEmotion.color,currentSize: NormalColorCalmEnergizedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteEnergizedEmotion.color,currentSize: quiteEnergizedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: energizedEmotion.color,currentSize: energizedEmotion.size,cardModel: cardModel)
+                CurrentDotView2(currentColor: calmEmotion.color,currentSize: calmEmotion.size)
+                CurrentDotView2(currentColor: quiteCalmEmotion.color,currentSize: quiteCalmEmotion.size)
+                CurrentDotView2(currentColor: NormalColorCalmEnergizedEmotion.color,currentSize: NormalColorCalmEnergizedEmotion.size)
+                CurrentDotView2(currentColor: quiteEnergizedEmotion.color,currentSize: quiteEnergizedEmotion.size)
+                CurrentDotView2(currentColor: energizedEmotion.color,currentSize: energizedEmotion.size)
             }.padding()
          
            
@@ -52,11 +47,11 @@ struct GeneratedCardEmotionSheetView: View {
             //Cheerful/Sensitive HStack
             HStack{
            
-                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size,cardModel: cardModel)
+                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size)
+                CurrentDotView2(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size)
+                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size)
+                CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size)
+                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size)
                
             }.padding()
             
@@ -77,11 +72,11 @@ struct GeneratedCardEmotionSheetView: View {
             // Insecure - Self Confident HStack
             
             HStack{
-                CurrentDotView2(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteInsecureEmotion.color,currentSize: quiteInsecureEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size,cardModel: cardModel)
+                CurrentDotView2(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size)
+                CurrentDotView2(currentColor: quiteInsecureEmotion.color,currentSize: quiteInsecureEmotion.size)
+                CurrentDotView2(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size)
+                CurrentDotView2(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size)
+                CurrentDotView2(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size)
             }.padding()
             
             HStack {
@@ -94,11 +89,11 @@ struct GeneratedCardEmotionSheetView: View {
             //Relaxed - Stressed HStack
             
             HStack{
-                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size,cardModel: cardModel).padding()
-                CurrentDotView2(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size,cardModel: cardModel).padding()
-                CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size,cardModel: cardModel).padding()
+                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size).padding()
+                CurrentDotView2(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size)
+                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size).padding()
+                CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size)
+                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size).padding()
             }.padding()
             
             HStack {
@@ -110,11 +105,11 @@ struct GeneratedCardEmotionSheetView: View {
                 .padding(.leading)
             
             HStack{
-                CurrentDotView2(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: quiteFocusedEmotion.color,currentSize: quiteFocusedEmotion.size,cardModel: cardModel)
-                CurrentDotView2(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size,cardModel: cardModel)
+                CurrentDotView2(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size)
+                CurrentDotView2(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size)
+                CurrentDotView2(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size)
+                CurrentDotView2(currentColor: quiteFocusedEmotion.color,currentSize: quiteFocusedEmotion.size)
+                CurrentDotView2(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size)
             }.padding()
             
         
@@ -135,7 +130,7 @@ struct GeneratedCardEmotionSheetView: View {
 
 struct GeneratedCardEmotionSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratedCardEmotionSheetView(cardModel: CardModel())
+        GeneratedCardEmotionSheetView().environmentObject(CardModel())
     }
 }
 
@@ -147,11 +142,11 @@ struct CurrentDotView2: View {
     @State var isExpanded: Bool = false
     
     
-    @ObservedObject var cardModel = CardModel()
+    @EnvironmentObject var cardModel: CardModel
     
     var body: some View {
         Button(action: {
-            cardModel.addEmotion(emotion: Emotion(size: currentSize,color: currentColor))
+            cardModel.addEmotion(emotion: Emotion(size: currentSize!,color: currentColor))
         
                 isExpanded = true
           

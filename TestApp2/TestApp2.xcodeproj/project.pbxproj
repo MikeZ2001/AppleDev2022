@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04134FFB2909897600239C75 /* CoreDataCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04134FFA2909897600239C75 /* CoreDataCardModel.swift */; };
-		04134FFE290989D300239C75 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04134FFC290989D300239C75 /* CoreDataModel.xcdatamodeld */; };
+		042445DE290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 042445DC290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodeld */; };
 		043A0A732902F4E900DE6912 /* CalendarViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A0A722902F4E900DE6912 /* CalendarViewLogic.swift */; };
 		043A0A752902F50000DE6912 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A0A742902F50000DE6912 /* MoodView.swift */; };
 		04445EC129052CB100E80C02 /* SingleImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC029052CB100E80C02 /* SingleImagePickerView.swift */; };
@@ -16,7 +15,7 @@
 		04445EC52905416C00E80C02 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC42905416C00E80C02 /* Emotion.swift */; };
 		0449551A2906D3C20000D632 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044955192906D3C20000D632 /* Database.swift */; };
 		049DFCB1290AB5730054BB73 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB0290AB5730054BB73 /* CalendarView.swift */; };
-		049DFCB3290AC44B0054BB73 /* CardSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB2290AC44B0054BB73 /* CardSheetView.swift */; };
+		049DFCB3290AC44B0054BB73 /* GeneratedCardSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */; };
 		049DFCB5290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */; };
 		04AF05D82903DB5D003A9A27 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF05D72903DB5D003A9A27 /* CardView.swift */; };
 		04AF05DA2903DBCF003A9A27 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF05D92903DBCF003A9A27 /* SheetView.swift */; };
@@ -48,8 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04134FFA2909897600239C75 /* CoreDataCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCardModel.swift; sourceTree = "<group>"; };
-		04134FFD290989D300239C75 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		042445DD290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCardModel6.xcdatamodel; sourceTree = "<group>"; };
 		04305CDB29042D1700A534EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		043A0A722902F4E900DE6912 /* CalendarViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewLogic.swift; sourceTree = "<group>"; };
 		043A0A742902F50000DE6912 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
@@ -58,7 +56,7 @@
 		04445EC42905416C00E80C02 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		044955192906D3C20000D632 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		049DFCB0290AB5730054BB73 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		049DFCB2290AC44B0054BB73 /* CardSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSheetView.swift; sourceTree = "<group>"; };
+		049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedCardSheetView.swift; sourceTree = "<group>"; };
 		049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedCardEmotionSheetView.swift; sourceTree = "<group>"; };
 		04AF05D72903DB5D003A9A27 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		04AF05D92903DBCF003A9A27 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
@@ -119,7 +117,7 @@
 				04AF05D92903DBCF003A9A27 /* SheetView.swift */,
 				04445EC029052CB100E80C02 /* SingleImagePickerView.swift */,
 				049DFCB0290AB5730054BB73 /* CalendarView.swift */,
-				049DFCB2290AC44B0054BB73 /* CardSheetView.swift */,
+				049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */,
 				049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */,
 			);
 			path = Views;
@@ -130,8 +128,7 @@
 			children = (
 				043A0A722902F4E900DE6912 /* CalendarViewLogic.swift */,
 				04AF05DF2903FD69003A9A27 /* CardModel.swift */,
-				04134FFA2909897600239C75 /* CoreDataCardModel.swift */,
-				04134FFC290989D300239C75 /* CoreDataModel.xcdatamodeld */,
+				042445DC290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodeld */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -336,11 +333,10 @@
 				04445EC52905416C00E80C02 /* Emotion.swift in Sources */,
 				043A0A732902F4E900DE6912 /* CalendarViewLogic.swift in Sources */,
 				049DFCB1290AB5730054BB73 /* CalendarView.swift in Sources */,
-				049DFCB3290AC44B0054BB73 /* CardSheetView.swift in Sources */,
+				049DFCB3290AC44B0054BB73 /* GeneratedCardSheetView.swift in Sources */,
 				04AF05DA2903DBCF003A9A27 /* SheetView.swift in Sources */,
+				042445DE290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodeld in Sources */,
 				043A0A752902F50000DE6912 /* MoodView.swift in Sources */,
-				04134FFE290989D300239C75 /* CoreDataModel.xcdatamodeld in Sources */,
-				04134FFB2909897600239C75 /* CoreDataCardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,13 +667,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		04134FFC290989D300239C75 /* CoreDataModel.xcdatamodeld */ = {
+		042445DC290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				04134FFD290989D300239C75 /* CoreDataModel.xcdatamodel */,
+				042445DD290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodel */,
 			);
-			currentVersion = 04134FFD290989D300239C75 /* CoreDataModel.xcdatamodel */;
-			path = CoreDataModel.xcdatamodeld;
+			currentVersion = 042445DD290C01CC00981AD9 /* CoreDataCardModel6.xcdatamodel */;
+			path = CoreDataCardModel6.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

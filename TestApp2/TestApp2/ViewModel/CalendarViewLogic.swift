@@ -23,7 +23,7 @@ struct CalendarViewLogic: UIViewRepresentable {
         let dateSelection = UICalendarSelectionSingleDate(delegate: context.coordinator)
         view.selectionBehavior = dateSelection
         
-        return view 
+        return view
     }
     
     
@@ -48,6 +48,8 @@ struct CalendarViewLogic: UIViewRepresentable {
         init(parent: CalendarViewLogic) {
             self.parent = parent
         }
+        
+        
         
         func dateSelection(_ selection: UICalendarSelectionSingleDate,
                            didSelectDate dateComponents: DateComponents?) {

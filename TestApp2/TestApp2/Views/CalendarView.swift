@@ -22,18 +22,19 @@ struct CalendarView: View {
   
         CalendarViewLogic(interval: DateInterval(start: .distantPast, end: .distantFuture),
                      dateSelected: $dateSelected,
-                     displayEvents: $displayEvents)
+                     displayEvents: $displayEvents).padding()
         .sheet(isPresented: $displayEvents) {
             
             //Here call card view
-            CardSheetView(cardModel:CardModel())
+            GeneratedCardSheetView()
             
         }
+        
         
     }
 }
 
-struct CalendarView2_Previews: PreviewProvider {
+struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarView()
     }

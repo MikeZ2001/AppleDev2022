@@ -28,7 +28,9 @@ struct MainView: View {
     
     @State var segmentationSelection : AppSection = .MyCard
     
-    @ObservedObject var cardModel = CardModel()
+   // @ObservedObject var cardModel = CardModel()
+    
+    @EnvironmentObject var modelData: CardModel
     
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -38,7 +40,7 @@ struct MainView: View {
             Text(".AppName.")
                 .font(Font.custom("SFMono", size: 40))
                 .font(.title2)
-                .padding(.leading)
+                .padding()
                 .fontWeight(.bold)
                 //.padding(.top)
                 
@@ -56,7 +58,7 @@ struct MainView: View {
         
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardView(cardModel: cardModel)
+                    CardView()
                     
                 }
                 
@@ -82,7 +84,8 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(CardModel())
+           
     }
 }
 

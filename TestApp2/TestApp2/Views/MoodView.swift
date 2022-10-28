@@ -28,6 +28,11 @@ struct MoodView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardEmotionData: FetchedResults<EmotionCoreDataEntity>
     
+    @State private var image: Data = .init(count: 0)
+    
+    var emptyImage = UIImage(systemName: "camera")
+     
+    
     
     var body: some View {
         
@@ -47,6 +52,14 @@ struct MoodView: View {
                     if(item.cardDate != nil){
                         Text(item.cardDate!)
                     }
+                    Spacer()
+                    
+                        //self.image = item.cardImage
+                    Image(uiImage: UIImage(data: (item.imageOfTheCard ?? self.image) )!)
+                        .resizable()
+                        .scaledToFit()
+                    
+                   // UIImage(data: item.image)
                 
                 }
               
@@ -56,10 +69,8 @@ struct MoodView: View {
                 
                 HStack{
                     
-                    
-                    Text("\(item.size)")
+                   // Text("\(item.size)")
                     Spacer()
-                   
                 
                 }
               
@@ -79,6 +90,6 @@ struct MoodView: View {
 }
 struct MoodView_Previews: PreviewProvider {
     static var previews: some View {
-        MoodView()
+        MoodView().environmentObject(CardModel())
     }
 }

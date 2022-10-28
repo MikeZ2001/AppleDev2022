@@ -22,7 +22,7 @@ struct CardView: View {
     
     @State var saveCardAlertSheet = false
     
-    var cardModel: CardModel
+    @EnvironmentObject var cardModel: CardModel
     
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -41,7 +41,7 @@ struct CardView: View {
                             
                         HStack (alignment: .center) {
     
-                        SingleImagePickerView(cardModel: cardModel)
+                        SingleImagePickerView()
                             
                        //Button emotions of the day
                             Button(action: {
@@ -52,7 +52,7 @@ struct CardView: View {
                                 .scaledToFit()
                             }.sheet(isPresented: $showingSheet){
                                 NavigationView {
-                                    SheetView(cardModel: cardModel)
+                                    SheetView()
                                         .toolbar {
                                             Button(action: {
                                                 
@@ -147,6 +147,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(alertText: " ",cardModel: CardModel())
+        CardView().environmentObject(CardModel())
     }
 }

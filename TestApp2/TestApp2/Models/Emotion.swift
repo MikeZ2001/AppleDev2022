@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Emotion{
     
-    var size:CGFloat?
+    var size:CGFloat
     var color: Color
     
 }

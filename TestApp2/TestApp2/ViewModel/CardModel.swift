@@ -19,6 +19,18 @@ class CardModel: ObservableObject{
     @Published var cardEmotion: Array<Emotion?> = Array(repeating: nil, count: 5)
     
     var savedEmotion: Array<Emotion?> = Array(repeating: nil, count: 5)
+  
+    @Published var imageDB: Data = .init(count: 0)
+    
+    let container = NSPersistentContainer(name: "CoreDataCardModel6")
+    
+    init(){
+        container.loadPersistentStores{descri, error in
+            if let error = error{
+                print("Failed to load data \(error.localizedDescription)")
+            }
+        }
+    }
     
     
     //ViewModel for the PhotosUI
@@ -49,6 +61,7 @@ class CardModel: ObservableObject{
             if let data = try await imageSelection?.loadTransferable(type: Data.self){
                 if let uiImage = UIImage(data: data){
                     self.image = Image(uiImage: uiImage)
+                    self.imageDB = data
                     
                     //take information of the photo
                     imageState = .success(image)
@@ -82,14 +95,26 @@ class CardModel: ObservableObject{
         
         let cardDB = CardCoreDataEntity(context: context)
         
+       // let emotionDB = EmotionCoreDataEntity(context: context)
+        
+        let emotionsDB: [EmotionCoreDataEntity] = [EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context)]
+        
         cardDB.id = UUID()
         cardDB.cardDate = currentCard?.date
         cardDB.songOfTheDay = currentCard?.songOfTheDay
         cardDB.thoughtOfTheDay = currentCard?.thoughtOfTheDay
+        cardDB.imageOfTheCard = imageDB
+        
+    
+       // emotionsDB[0].id = UUID()
+       // emotionsDB[0].size = CGFloat(savedEmotion[0]?.size)
+        //emotionsDB[0].color = savedEmotion[0]?.color.description
         
         saveDB(context: context)
         
         print("Current Card:   \(String(describing: currentCard))")
+        
+        //print("Emotion DB Array:   \(emotionsDB)")
     }
     
     func saveDB(context: NSManagedObjectContext){
@@ -111,24 +136,18 @@ class CardModel: ObservableObject{
         if(savedEmotion[0] != nil && savedEmotion[2] != nil && savedEmotion[3] != nil && savedEmotion[4] != nil){
             
             //Salva informazioni in qualcosa (Db locale,File,Array)
+             print("Saved emotion array:   \(savedEmotion)")
             
             //Create emotion  DB Istance
-            var i: Int = 0
-            
-            var emotionsDB: Array<EmotionCoreDataEntity?> = Array(repeating: nil, count: 5)
-            
-            for emotion in savedEmotion {
-                
-               // emotionsDB[2]?.size = Float(emotion.size!)
-                
-                i = i+1
-            }
-            //Save Emotion Array in DB
+          
+            //var savedEmotion: Array<Emotion?> = Array(repeating: nil, count: 5)
+  
+           // var emoDB: [EmotionCoreDataEntity] = []
             
             
-            saveDB(context: context)
+           // saveDB(context: context)
             
-        print(savedEmotion)
+            //print("Emotion DB Array:   \(emotionsDB)")
             
             return true
         }
@@ -150,6 +169,26 @@ class CardModel: ObservableObject{
             
             savedEmotion[0] = emotion
             
+            //emotionsDB[0]?.id = UUID()
+            // emotionsDB[0]?.size = emotion.size
+            //emotionsDB[0]?.color = emotion.color.description
+            
+            
+        }
+        
+        //Only for test , it should be cheerful sensitive
+        if(emotion.color == insecureEmotion.color ||
+           emotion.color == quiteInsecureEmotion.color ||
+           emotion.color == InsecureSelfConfidentNormalEmotion.color ||
+           emotion.color == quiteSelfConfidentEmotion.color ||
+           emotion.color == selfConfidentEmotion.color){
+            
+            savedEmotion[1] = emotion
+            
+            // emotionsDB[1]?.id = UUID()
+            //emotionsDB[1]?.size = emotion.size
+            // emotionsDB[1]?.color = emotion.color.description
+            
         }
         
         if(emotion.color == insecureEmotion.color ||
@@ -159,6 +198,10 @@ class CardModel: ObservableObject{
            emotion.color == selfConfidentEmotion.color){
             
             savedEmotion[2] = emotion
+            
+            // emotionsDB[2]?.id = UUID()
+            //  emotionsDB[2]?.size = emotion.size
+            //emotionsDB[2]?.color = emotion.color.description
             
         }
         
@@ -171,11 +214,19 @@ class CardModel: ObservableObject{
             
             savedEmotion[3] = emotion
             
+            // emotionsDB[3]?.id = UUID()
+            // emotionsDB[3]?.size = emotion.size
+            // emotionsDB[3]?.color = emotion.color.description
+            
         }
         
         if(emotion.color == distractedEmotion.color || emotion.color == quiteDistractedEmotion.color || emotion.color == distractedFocusedNormalEmotion.color || emotion.color == quiteFocusedEmotion.color || emotion.color == focusedEmotion.color)
         {
             savedEmotion[4] = emotion
+            
+            // emotionsDB[4]?.id = UUID()
+            //  emotionsDB[4]?.size = emotion.size
+            //  emotionsDB[4]?.color = emotion.color.description
         }
         
         
@@ -187,7 +238,10 @@ class CardModel: ObservableObject{
         print("\n")
         
         
+        //print("Emotion DB Array:   \(emotionsDB)")
     }
+    
+   
     
 }
 

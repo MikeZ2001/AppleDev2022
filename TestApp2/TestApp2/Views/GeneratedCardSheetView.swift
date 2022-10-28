@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 //Card Layout
-struct CardSheetView: View {
+struct GeneratedCardSheetView: View {
 
     @State var showingSheet = false
     @State var alertSheet = false
     
-    var cardModel: CardModel
-    
+    @EnvironmentObject var cardModel: CardModel
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -31,7 +30,7 @@ struct CardSheetView: View {
                             
                         HStack (alignment: .center) {
     
-                        SingleImagePickerView(cardModel: cardModel)
+                        SingleImagePickerView()
                             
                        //Button emotions of the day
                             Button(action: {
@@ -46,7 +45,7 @@ struct CardSheetView: View {
                                 
                             }.sheet(isPresented: $showingSheet){
                                 NavigationView {
-                                    GeneratedCardEmotionSheetView(cardModel: cardModel)
+                                    GeneratedCardEmotionSheetView()
                                         .toolbar {
                                             Button(action: {
                                                 
@@ -101,8 +100,6 @@ struct CardSheetView: View {
                             
                             //Share card only
                             
-                            //CoreDataCardModel().saveData(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
-                            //if card is saved correctly
                             
                         }){
                             Label("Share", systemImage: "square.and.arrow.up")
@@ -128,8 +125,8 @@ struct CardSheetView: View {
     }
 
 
-struct CardSheetView_Previews: PreviewProvider {
+struct GeneratedCardSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        CardSheetView(cardModel: CardModel())
+        GeneratedCardSheetView().environmentObject(CardModel())
     }
 }

@@ -10,7 +10,8 @@ import PhotosUI
 
 struct SingleImagePickerView: View {
     
-    @StateObject var cardModel: CardModel
+    @EnvironmentObject var cardModel: CardModel
+    //@StateObject var cardModel: CardModel
     
     var body: some View {
         VStack{
@@ -80,6 +81,6 @@ struct UserImageStates: View{
 
 struct SingleImagePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleImagePickerView(cardModel: CardModel())
+        SingleImagePickerView().environmentObject(CardModel())
     }
 }
