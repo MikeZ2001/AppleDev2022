@@ -30,56 +30,61 @@ struct MainView: View {
     
    // @ObservedObject var cardModel = CardModel()
     
-    @EnvironmentObject var modelData: CardModel
+    @EnvironmentObject var cardModel: CardModel
     
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack (alignment: .leading)  {
+            
             Text(".5Dots.")
                 .font(Font.custom("Avenir-Heavy", size: 30))
                 .font(.title2)
+                .padding(.top)
                 .padding(.leading)
                 .fontWeight(.bold)
             
-
-                //Segmented Control
-                Picker("", selection: $segmentationSelection) {
-                    ForEach(AppSection.allCases, id: \.self) { option in
-                        Text(option.rawValue)
-                    }
-                }.pickerStyle(SegmentedPickerStyle())
-                .padding([.leading,.trailing])
+            VStack (){
                 
-        
+                VStack{
+                    //Segmented Control
+                    Picker("", selection: $segmentationSelection) {
+                        ForEach(AppSection.allCases, id: \.self) { option in
+                            Text(option.rawValue)
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                        .padding([.leading,.trailing])
+                    
+                }
+                
+                
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardView().frame(width: .infinity,height: .infinity)
+                    CardView()
                     
                 }
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
-                    
                     MoodView()
+                    //.padding()
+                    
+                }
+                 
+                
+                if(segmentationSelection.rawValue.elementsEqual("My Journey")){
+                    Spacer()
+                    CalendarView()
+                    Spacer()
+                    //CalendarView().environmentObject(cardModel)
                         
                 }
                 
-                if(segmentationSelection.rawValue.elementsEqual("My Journey")){
-                    ScrollView {
-                        CalendarView()
-                            .background((Color("NormalColor")))
-                            
-                        
-                    }
-                      
-                }
-                    
-            
-            
-        }
-         .background(Image("AppBackground"))
-            
+                
+                
+            }
+           
+        } .background(Image("AppBackground").scaledToFill())
     }
 }
 

@@ -18,11 +18,13 @@ struct GeneratedCardSheetView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    var currentCardCalendar: Card
+    
     var body: some View {
         
                     VStack{
                         //Card Date
-                        Text(Date.getCurrentDate())
+                        Text(Date().getDateToString(date: currentCardCalendar.date))
                             .fontWeight(.black)
                             .font(Font.custom("Helvetica Neue", size: 38.0))
                             .multilineTextAlignment(.leading)
@@ -30,6 +32,7 @@ struct GeneratedCardSheetView: View {
                             
                         HStack (alignment: .center) {
     
+                                //Image
                         SingleImagePickerView(cardModel: cardModel)
                             
                        //Button emotions of the day
@@ -79,7 +82,7 @@ struct GeneratedCardSheetView: View {
                             Text("What song represents you today? ")
                                 .padding(.top)
                                 .padding(.leading)
-                            Text("Azzurro")
+                        Text(currentCardCalendar.songOfTheDay)
                                 .padding(.leading, 13)
                                 .padding(.trailing, 13)
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
@@ -89,7 +92,7 @@ struct GeneratedCardSheetView: View {
                                 .padding(.top)
                                 .padding(.leading)
                             
-                            Text("My daily thoughts are ...")
+                        Text(currentCardCalendar.thoughtOfTheDay)
                                 .padding(.leading, 13)
                                 .padding(.trailing, 13)
                                 .padding(.bottom)
@@ -127,6 +130,6 @@ struct GeneratedCardSheetView: View {
 
 struct GeneratedCardSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratedCardSheetView().environmentObject(CardModel())
+        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooo",emotions: [Emotion]())).environmentObject(CardModel())
     }
 }

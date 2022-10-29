@@ -15,14 +15,20 @@ import UIKit
 class CardModel: ObservableObject{
     
     //Properties of the card
-    var currentCard: Card?
+    var currentCard: Card? = nil
     @Published var cardEmotion: Array<Emotion?> = Array(repeating: nil, count: 5)
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
+    
+    //@Published var allCardData = [CardCoreDataEntity]()
+    @Published var cardDataEntity = [Card]()
     
     var savedEmotion: Array<Emotion?> = Array(repeating: nil, count: 5)
   
     @Published var imageDB: Data = .init(count: 0)
+
+    var currentCardCalendar: Card?
     
-    let container = NSPersistentContainer(name: "CoreDataCardModel6")
+    let container = NSPersistentContainer(name: "DBCoreData")
     
     init(){
         container.loadPersistentStores{descri, error in
@@ -30,7 +36,18 @@ class CardModel: ObservableObject{
                 print("Failed to load data \(error.localizedDescription)")
             }
         }
+        
+      //  fetchCardData()
     }
+    /*
+    func fetchCardData(){
+        
+        cardDataEntity = Card.sample
+        
+        print(cardDataEntity)
+       
+    }
+     */
     
     
     //ViewModel for the PhotosUI
@@ -84,12 +101,13 @@ class CardModel: ObservableObject{
         let windowScene = scenes.first as? UIWindowScene
         
         windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
+         */
         
         //group all in one object card (image,emotion,card info)
-         */
+        
          
         
-        currentCard = Card(date: Date.getCurrentDate(),image: image,songOfTheDay: songOfTheDay,thoughtOfTheDay: thoughtOfTheDay,emotions: savedEmotion)
+        currentCard = Card(date: Date(),image: image,songOfTheDay: songOfTheDay,thoughtOfTheDay: thoughtOfTheDay,emotions: savedEmotion)
         
 
         //DB save
@@ -98,14 +116,16 @@ class CardModel: ObservableObject{
         
        // let emotionDB = EmotionCoreDataEntity(context: context)
         
+        /*
         let emotionsDB: [EmotionCoreDataEntity] = [EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context)]
+         */
         
         cardDB.id = UUID()
-        cardDB.cardDate = currentCard?.date
+        cardDB.cardDate = currentCard!.date
         cardDB.songOfTheDay = currentCard?.songOfTheDay
         cardDB.thoughtOfTheDay = currentCard?.thoughtOfTheDay
         cardDB.imageOfTheCard = imageDB
-        
+    
     
     
        // emotionsDB[0].id = UUID()
@@ -125,12 +145,19 @@ class CardModel: ObservableObject{
             try context.save()
             print("Data saved")
             
-            
         }catch{
             print("WE COULD NOT SAVE DATA")
         }
     }
     
+    
+    func saveCurrentCardCalendar(card: Card){
+        
+        self.currentCardCalendar = card
+        
+        print("Card appena selezionata: \(String(describing: currentCardCalendar))")
+        
+    }
     
     func saveEmotions(context: NSManagedObjectContext) -> Bool{
         
@@ -247,16 +274,3 @@ class CardModel: ObservableObject{
     
 }
 
-extension Date {
-
- static func getCurrentDate() -> String {
-
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-
-        return dateFormatter.string(from: Date())
-
-    }
-}
-    

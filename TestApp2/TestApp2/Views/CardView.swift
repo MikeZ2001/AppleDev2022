@@ -23,8 +23,7 @@ struct CardView: View {
     @State var saveCardAlertSheet = false
     
     @EnvironmentObject var cardModel: CardModel
-    
-    
+        
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
@@ -33,20 +32,21 @@ struct CardView: View {
         
         VStack{
             //See rounded rectangle
-            /*
+            
             RoundedRectangle(cornerRadius: 40)
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
                                      ,startPoint: .topLeading,
                                      endPoint: .bottomTrailing))
+               
                 .overlay(
-             */
-            Spacer()
+             
+         //   Spacer()
             
             //Card Date
             VStack{
                 
                 Spacer()
-                Text(Date.getCurrentDate())
+                Text(Date().getCurrentDate())
                     .font(Font.custom("Avenir-Heavy", size: 30.0))
                     .multilineTextAlignment(.leading)
                     .padding()
@@ -104,10 +104,11 @@ struct CardView: View {
                 
                 //Stack centered elements
             
-                        //Song of the day
-                        Text("􀑪 What song represents you today? ")
+                        //Song of the dayText("Super star \(Image(systemName: "star"))")
+                        Text("\(Image(systemName: "music.note")) What song represents you today?   ")
                             .font(.callout)
                             .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
                             .padding(.top)
                             .padding(.leading)
                         TextField("Write a song...", text: $myInput1)
@@ -121,9 +122,11 @@ struct CardView: View {
                
             
                         //Daily thoughts
-                        Text("What are your daily thoughts?")
+                        Text(" \(Image(systemName: "sun.max.fill")) What are your daily thoughts?           ")
+                        
                             .font(.callout)
                             .fontWeight(.bold)
+                           
                             .padding(.top)
                             .padding(.leading)
                         
@@ -136,7 +139,9 @@ struct CardView: View {
                 Spacer()
                 
                 
-            }.background{
+            }
+                )
+                /*.background{
                 
                 RoundedRectangle(cornerRadius: 40)
                     .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
@@ -146,6 +151,7 @@ struct CardView: View {
                     //.padding()
             }
             .padding()
+                 */
                 
             
             Spacer()
@@ -153,8 +159,15 @@ struct CardView: View {
             Button(action: {
                 cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
                 
-                //CoreDataCardModel().saveData(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
-                //if card is saved correctly
+                /*
+                //Share action sheet
+                let activityVC = UIActivityViewController(activityItems: [CardView().environmentObject(cardModel).toPNG()], applicationActivities: nil)
+                let scenes = UIApplication.shared.connectedScenes
+                let windowScene = scenes.first as? UIWindowScene
+                
+                windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
+                 */
+                
                 saveCardAlertSheet.toggle()
             }){
                 Label("Save", systemImage: "square.and.arrow.up")
@@ -181,6 +194,7 @@ struct ColorsSaved{
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView().environmentObject(CardModel())
+        CardView().environmentObject(CardModel())       .background(Image("AppBackground"))
+        }
     }
-}
+

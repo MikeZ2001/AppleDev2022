@@ -31,11 +31,13 @@ struct MoodView: View {
     @State private var image: Data = .init(count: 0)
     
     var emptyImage = UIImage(systemName: "camera")
-     
     
+    @EnvironmentObject var cardModel: CardModel
+    
+    @State private var dateSelected: DateComponents?
+    @State private var displayEvents = false
     
     var body: some View {
-        
         
         
         VStack {
@@ -44,37 +46,42 @@ struct MoodView: View {
                 
                 HStack{
                     
-                    
                     Text(item.songOfTheDay!)
                     Spacer()
                     Text(item.thoughtOfTheDay!)
                     Spacer()
-                    if(item.cardDate != nil){
-                        Text(item.cardDate!)
-                    }
+                   
+                    Text("\(item.cardDate)")
+                    
                     Spacer()
                     
-                        //self.image = item.cardImage
-                    Image(uiImage: UIImage(data: (item.imageOfTheCard ?? self.image) )!)
+                    //self.image = item.cardImage
+                    Image(uiImage: UIImage(data: (item.imageOfTheCard ) )!)
                         .resizable()
                         .scaledToFit()
                     
-                   // UIImage(data: item.image)
-                
+                    // UIImage(data: item.image)
+                    
                 }
-              
+                
             }
+            
             
             List(cardEmotionData) { item in
                 
                 HStack{
                     
-                   // Text("\(item.size)")
+                    // Text("\(item.size)")
                     Spacer()
-                
+                    
                 }
-              
+                
             }
+             
+            
+        }
+            
+            
             /*
              Chart(userEmotion, id: \.dayNumber) { currentUserEmotion in
              PointMark(
@@ -87,7 +94,7 @@ struct MoodView: View {
              */
         }
     }
-}
+
 struct MoodView_Previews: PreviewProvider {
     static var previews: some View {
         MoodView().environmentObject(CardModel())
