@@ -78,8 +78,22 @@ struct CalendarViewLogic: UIViewRepresentable {
                     
                     var uiImage = UIImage(data: card.imageOfTheCard)
                     var image = Image(uiImage: uiImage!)
+                   // var emotions = [Emotion]()
                     
-                    var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: [Emotion]())
+                    /*
+                    for emotion in card.emotion{
+                        
+                        var emotionEntity: Emotion = Emotion(size: 0, color: Color(emotion.color!))
+                        emotions.append(emotionEntity)
+                        print("\(emotionEntity)")
+                    }
+                     */
+                    
+                    
+                    //demo Behaviour for card emotions [inscureEmotion,stressedEmotion]
+                    
+                    
+                    var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: [insecureEmotion,stressedEmotion])
                     
                     cardModel.saveCurrentCardCalendar(card: currentCard)
                     

@@ -21,7 +21,7 @@ extension CardCoreDataEntity {
     @NSManaged public var imageOfTheCard: Data
     @NSManaged public var songOfTheDay: String?
     @NSManaged public var thoughtOfTheDay: String?
-    @NSManaged public var emotion: NSSet?
+    @NSManaged public var emotion: NSSet
 
 }
 

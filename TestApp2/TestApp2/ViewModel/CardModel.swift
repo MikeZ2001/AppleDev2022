@@ -28,6 +28,9 @@ class CardModel: ObservableObject{
 
     var currentCardCalendar: Card?
     
+    var emotionsDB = [EmotionCoreDataEntity]()
+   
+    
     let container = NSPersistentContainer(name: "DBCoreData")
     
     init(){
@@ -114,17 +117,28 @@ class CardModel: ObservableObject{
         
         let cardDB = CardCoreDataEntity(context: context)
         
-       // let emotionDB = EmotionCoreDataEntity(context: context)
+        let emotionDB = EmotionCoreDataEntity(context: context)
+        let emotionDB2 = EmotionCoreDataEntity(context: context)
         
-        /*
-        let emotionsDB: [EmotionCoreDataEntity] = [EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context),EmotionCoreDataEntity(context: context)]
-         */
+        emotionDB.color = "InsecureColor"
+        emotionDB2.color = "StressedColor"
+        
+     
+        
+  
+         
         
         cardDB.id = UUID()
         cardDB.cardDate = currentCard!.date
         cardDB.songOfTheDay = currentCard?.songOfTheDay
         cardDB.thoughtOfTheDay = currentCard?.thoughtOfTheDay
         cardDB.imageOfTheCard = imageDB
+        
+        
+        //cardDB.emotion.append(emotionDB)
+        
+       // cardDB.emotion.append(emotionDB2)
+        
     
     
     
@@ -197,6 +211,8 @@ class CardModel: ObservableObject{
            emotion.color == energizedEmotion.color){
             
             savedEmotion[0] = emotion
+            
+            
             
             //emotionsDB[0]?.id = UUID()
             // emotionsDB[0]?.size = emotion.size
