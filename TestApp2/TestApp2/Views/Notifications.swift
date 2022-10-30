@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UserNotifications
+
 
 struct Notifications: View {
     var body: some View {
@@ -21,12 +23,17 @@ struct Notifications: View {
             }
             Button("Schedule Notifications"){
                 let content = UNMutableNotificationContent()
-                content.title = "Feed the cat"
-                content.subtitle = "It looks hungry"
+                content.title = "How are you today?"
+                content.subtitle = "It's time to discover you five dots of the day"
                 content.sound = UNNotificationSound.default
 
                 // show this notification five seconds from now
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+              //  let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                var dateComponents = DateComponents()
+                dateComponents.hour = 13
+                dateComponents.minute = 22
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
                 // choose a random identifier
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
