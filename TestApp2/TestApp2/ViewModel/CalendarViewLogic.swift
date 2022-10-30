@@ -78,22 +78,30 @@ struct CalendarViewLogic: UIViewRepresentable {
                     
                     var uiImage = UIImage(data: card.imageOfTheCard)
                     var image = Image(uiImage: uiImage!)
-                   // var emotions = [Emotion]()
+                   
+                    var emotions = [Emotion]()
                     
-                    /*
+                    
                     for emotion in card.emotion{
                         
-                        var emotionEntity: Emotion = Emotion(size: 0, color: Color(emotion.color!))
+                        var emotionEntity: Emotion = Emotion(size: 0, color: Color((emotion as AnyObject).color!))
                         emotions.append(emotionEntity)
                         print("\(emotionEntity)")
                     }
-                     */
+                     
+                    
+                   // let cardEmotion = card.emotion.allObjects as? [EmotionCoreDataEntity]
+                    
                     
                     
                     //demo Behaviour for card emotions [inscureEmotion,stressedEmotion]
                     
                     
-                    var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: [insecureEmotion,stressedEmotion])
+                   // var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: [insecureEmotion,stressedEmotion,selfConfidentEmotion,calmEmotion,selfConfidentEmotion])
+                    
+                    var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: emotions)
+                    
+                    print("Current Card Selected Calendar ::::\(currentCard)")
                     
                     cardModel.saveCurrentCardCalendar(card: currentCard)
                     
@@ -102,17 +110,6 @@ struct CalendarViewLogic: UIViewRepresentable {
                     print("Oleee")
                 }
                 
-                /*
-                if(card.cardDate.startOfDay.getCurrentDate().elementsEqual((dateComponents.date?.startOfDay.getCurrentDate())!)){
-                    parent.displayEvents.toggle()
-                }
-                else
-                {
-                    print("No card found in that date")
-                }
-                 */
-                
-             
                 
             }
             

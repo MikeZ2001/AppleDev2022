@@ -28,20 +28,38 @@ class CardModel: ObservableObject{
 
     var currentCardCalendar: Card?
     
-    var emotionsDB = [EmotionCoreDataEntity]()
+   
    
     
+    //let container = NSPersistentContainer(name: "DBCoreData")
     let container = NSPersistentContainer(name: "DBCoreData")
+   // let contextVM: NSManagedObjectContext
     
+    var emotionsDB: [EmotionCoreDataEntity]
+   
+    
+
     init(){
         container.loadPersistentStores{descri, error in
             if let error = error{
                 print("Failed to load data \(error.localizedDescription)")
             }
+            
+           
         }
+        
+       // contextVM = container.viewContext
+        
+        
+        emotionsDB = [EmotionCoreDataEntity(context: container.viewContext),EmotionCoreDataEntity(context: container.viewContext),EmotionCoreDataEntity(context: container.viewContext),EmotionCoreDataEntity(context: container.viewContext),EmotionCoreDataEntity(context: container.viewContext)]
         
       //  fetchCardData()
     }
+    
+    
+    
+    
+  
     /*
     func fetchCardData(){
         
@@ -117,38 +135,20 @@ class CardModel: ObservableObject{
         
         let cardDB = CardCoreDataEntity(context: context)
         
-        let emotionDB = EmotionCoreDataEntity(context: context)
-        let emotionDB2 = EmotionCoreDataEntity(context: context)
-        
-        emotionDB.color = "InsecureColor"
-        emotionDB2.color = "StressedColor"
-        
-     
-        
-  
-         
-        
         cardDB.id = UUID()
         cardDB.cardDate = currentCard!.date
         cardDB.songOfTheDay = currentCard?.songOfTheDay
         cardDB.thoughtOfTheDay = currentCard?.thoughtOfTheDay
         cardDB.imageOfTheCard = imageDB
         
-        
-        //cardDB.emotion.append(emotionDB)
-        
-       // cardDB.emotion.append(emotionDB2)
-        
-    
-    
-    
-       // emotionsDB[0].id = UUID()
-       // emotionsDB[0].size = CGFloat(savedEmotion[0]?.size)
-        //emotionsDB[0].color = savedEmotion[0]?.color.description
+        //Add new emotions to new card
+        cardDB.emotion = [emotionsDB[0],emotionsDB[1],emotionsDB[2],emotionsDB[3],emotionsDB[4]]
         
         saveDB(context: context)
         
         print("Current Card:   \(String(describing: currentCard))")
+        
+        print("DB Current Card:   \(String(describing: cardDB))")
         
         //print("Emotion DB Array:   \(emotionsDB)")
     }
@@ -176,21 +176,10 @@ class CardModel: ObservableObject{
     func saveEmotions(context: NSManagedObjectContext) -> Bool{
         
         print(savedEmotion)
-        if(savedEmotion[0] != nil && savedEmotion[2] != nil && savedEmotion[3] != nil && savedEmotion[4] != nil){
+        if(savedEmotion[0] != nil && savedEmotion[1] != nil && savedEmotion[2] != nil && savedEmotion[3] != nil && savedEmotion[4] != nil){
             
             //Salva informazioni in qualcosa (Db locale,File,Array)
              print("Saved emotion array:   \(savedEmotion)")
-            
-            //Create emotion  DB Istance
-          
-            //var savedEmotion: Array<Emotion?> = Array(repeating: nil, count: 5)
-  
-           // var emoDB: [EmotionCoreDataEntity] = []
-            
-            
-           // saveDB(context: context)
-            
-            //print("Emotion DB Array:   \(emotionsDB)")
             
             return true
         }
@@ -212,11 +201,9 @@ class CardModel: ObservableObject{
             
             savedEmotion[0] = emotion
             
-            
-            
-            //emotionsDB[0]?.id = UUID()
-            // emotionsDB[0]?.size = emotion.size
-            //emotionsDB[0]?.color = emotion.color.description
+            emotionsDB[0].id = UUID()
+            emotionsDB[0].size = ((emotion.size) as NSNumber)
+            emotionsDB[0].color = emotion.color.description
             
             
         }
@@ -230,9 +217,9 @@ class CardModel: ObservableObject{
             
             savedEmotion[1] = emotion
             
-            // emotionsDB[1]?.id = UUID()
-            //emotionsDB[1]?.size = emotion.size
-            // emotionsDB[1]?.color = emotion.color.description
+            emotionsDB[1].id = UUID()
+            emotionsDB[1].size = ((emotion.size) as NSNumber)
+            emotionsDB[1].color = emotion.color.description
             
         }
         
@@ -244,9 +231,9 @@ class CardModel: ObservableObject{
             
             savedEmotion[2] = emotion
             
-            // emotionsDB[2]?.id = UUID()
-            //  emotionsDB[2]?.size = emotion.size
-            //emotionsDB[2]?.color = emotion.color.description
+            emotionsDB[2].id = UUID()
+            emotionsDB[2].size = ((emotion.size) as NSNumber)
+            emotionsDB[2].color = emotion.color.description
             
         }
         
@@ -259,9 +246,9 @@ class CardModel: ObservableObject{
             
             savedEmotion[3] = emotion
             
-            // emotionsDB[3]?.id = UUID()
-            // emotionsDB[3]?.size = emotion.size
-            // emotionsDB[3]?.color = emotion.color.description
+            emotionsDB[3].id = UUID()
+            emotionsDB[3].size = ((emotion.size) as NSNumber)
+            emotionsDB[3].color = emotion.color.description
             
         }
         
@@ -269,9 +256,9 @@ class CardModel: ObservableObject{
         {
             savedEmotion[4] = emotion
             
-            // emotionsDB[4]?.id = UUID()
-            //  emotionsDB[4]?.size = emotion.size
-            //  emotionsDB[4]?.color = emotion.color.description
+            emotionsDB[4].id = UUID()
+            emotionsDB[4].size = ((emotion.size) as NSNumber)
+            emotionsDB[4].color = emotion.color.description
         }
         
         
@@ -283,10 +270,15 @@ class CardModel: ObservableObject{
         print("\n")
         
         
+        print("DB Calm - Energized Selected : \(String(describing: emotionsDB[0].color))")
+        print("DB Insecure - SelfConfident Selected : \(String(describing: emotionsDB[2].color))")
+        print("DB Relaxed - Stressed Selected : \(String(describing: emotionsDB[3].color))")
+        print("DB Distracted - Focused Selected : \(String(describing: emotionsDB[4].color))")
+        print("\n")
+        
+        
         //print("Emotion DB Array:   \(emotionsDB)")
     }
-    
-   
     
 }
 

@@ -169,7 +169,7 @@ struct CurrentDotView2: View {
             
             for card in currentCardCalendar.emotions{
                 
-                if(card?.color == currentColor){
+                if(currentColor.description == card?.color.description){
                    isExpanded = true
                 }else{
                     //isExpanded = false
