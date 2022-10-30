@@ -48,7 +48,7 @@ struct GeneratedCardSheetView: View {
                                 
                             }.sheet(isPresented: $showingSheet){
                                 NavigationView {
-                                    GeneratedCardEmotionSheetView()
+                                    GeneratedCardEmotionSheetView(currentCardCalendar: currentCardCalendar)
                                         .toolbar {
                                             Button(action: {
                                                 
