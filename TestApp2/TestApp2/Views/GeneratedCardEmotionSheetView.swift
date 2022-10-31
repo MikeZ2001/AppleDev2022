@@ -19,28 +19,22 @@ struct GeneratedCardEmotionSheetView: View {
         
         VStack{
         
-            /*
-                Text("How do you feel today?")
-                    .multilineTextAlignment(.center)
-                .font(Font.custom("SF Mono", size: 34.0))
-
-             */
+         
             
-                    
             // Calm/Energized HStack
             HStack{
-                CurrentDotView2(currentColor: calmEmotion.color,currentSize: calmEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: calmEmotion.color,currentSize: calmEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteCalmEmotion.color,currentSize: quiteCalmEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: NormalColorCalmEnergizedEmotion.color,currentSize: NormalColorCalmEnergizedEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: NormalColorCalmEnergizedEmotion.color,currentSize: NormalColorCalmEnergizedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteEnergizedEmotion.color,currentSize: quiteEnergizedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: energizedEmotion.color,currentSize: energizedEmotion.size, currentCardCalendar: currentCardCalendar)
-            }.padding()
+                CurrentDotView2(currentColor: energizedEmotion.color,currentSize: energizedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
+            }
          
            
             HStack {
-            Text("Calm")
+            Text("Calm") .font(Font.custom("Avenir-Medium", size: 16))
             Spacer()
-            Text("Energized")
+            Text("Energized") .font(Font.custom("Avenir-Medium", size: 16))
                 
             }.padding(.trailing)
              .padding(.leading)
@@ -49,22 +43,22 @@ struct GeneratedCardEmotionSheetView: View {
             //Cheerful/Sensitive HStack
             HStack{
            
-                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                
-            }.padding()
+            }
             
             HStack {
             Text("Cheerful")
-                .frame(alignment: .leading)
+                    .font(Font.custom("Avenir-Medium", size: 16))
             
                 Spacer()
                 
             Text("Sensitive")
-                    .frame(alignment: .trailing)
+                    .font(Font.custom("Avenir-Medium", size: 16))
                 
             }.padding(.trailing)
                 .padding(.leading)
@@ -74,17 +68,17 @@ struct GeneratedCardEmotionSheetView: View {
             // Insecure - Self Confident HStack
             
             HStack{
-                CurrentDotView2(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteInsecureEmotion.color,currentSize: quiteInsecureEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size, currentCardCalendar: currentCardCalendar)
-            }.padding()
+                CurrentDotView2(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size, currentCardCalendar: currentCardCalendar).padding()
+            }
             
             HStack {
-            Text("Insecure")
+            Text("Insecure").font(Font.custom("Avenir-Medium", size: 16))
                 Spacer()
-            Text("Self Confident")
+            Text("Self Confident").font(Font.custom("Avenir-Medium", size: 16))
             }.padding(.trailing)
                 .padding(.leading)
             
@@ -96,29 +90,29 @@ struct GeneratedCardEmotionSheetView: View {
                 CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size, currentCardCalendar: currentCardCalendar)
                 CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
-            }.padding()
+            }
             
             HStack {
-            Text("Relaxed")
+            Text("Relaxed") .font(Font.custom("Avenir-Medium", size: 16))
                 Spacer()
-            Text("Stressed")
+            Text("Stressed") .font(Font.custom("Avenir-Medium", size: 16))
                 
             }.padding(.trailing)
                 .padding(.leading)
             
             HStack{
-                CurrentDotView2(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                 CurrentDotView2(currentColor: quiteFocusedEmotion.color,currentSize: quiteFocusedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size, currentCardCalendar: currentCardCalendar)
-            }.padding()
+                CurrentDotView2(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
+            }
             
         
             HStack{
-                Text("Distracted")
+                Text("Distracted") .font(Font.custom("Avenir-Medium", size: 16))
                 Spacer()
-                Text("Focused")
+                Text("Focused") .font(Font.custom("Avenir-Medium", size: 16))
             }.padding(.trailing)
                 .padding(.leading)
              
@@ -165,7 +159,8 @@ struct CurrentDotView2: View {
                 }
              
                 
-        }.onAppear{
+        }.disabled(true)
+        .onAppear{
             
             for card in currentCardCalendar.emotions{
                 

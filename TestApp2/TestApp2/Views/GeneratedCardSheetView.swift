@@ -20,144 +20,148 @@ struct GeneratedCardSheetView: View {
     
     @State var currentCardCalendar: Card
     
+    
+    
     var body: some View {
         
-                    VStack{
+        
+        VStack{
+            //See rounded rectangle
+            ZStack{
+               
+                RoundedRectangle(cornerRadius: 40)
+                    
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
+                                         ,startPoint: .topLeading,
+                                         endPoint: .bottomTrailing))
+                    .frame(width: 307.44 , height: 546.56)
+                    .background(.ultraThinMaterial,  in: RoundedRectangle(cornerRadius: 40))
+                    .aspectRatio(CGSize(width: 9, height: 16), contentMode: .fill)
+                    .overlay(
+                        
+                        //   Spacer()
+                        
                         //Card Date
-                        Text(Date().getDateToString(date: currentCardCalendar.date))
-                            .fontWeight(.black)
-                            .font(Font.custom("Helvetica Neue", size: 38.0))
-                            .multilineTextAlignment(.leading)
-                            .padding()
+                        VStack{
                             
-                        HStack (alignment: .center) {
-    
-                                //Image
-                            SingleImagePickerView(cardModel: cardModel).padding()
-                            
-                       //Button emotions of the day
-                            Button(action: {
-                                showingSheet.toggle()
-                            }){
-                                Image("fiore pdf")
-                                .resizable()
-                                .scaledToFit()
+                            Spacer()
+                            Text(Date().getDateToString(date: currentCardCalendar.date))
+                                    .font(Font.custom("Avenir-Heavy", size: 30.0))
+                                    .multilineTextAlignment(.leading)
                                 .padding()
-                                .bold()
-                                .font(Font.custom("Helvetica Neue", size: 24.0))
+                            
+                            
+                            HStack (alignment: .center) {
                                 
+                              //  SingleImagePickerView(cardModel: cardModel)
+                                    //.padding(.leading)
                                 
-                            }.sheet(isPresented: $showingSheet){
-                                NavigationView {
-                                    GeneratedCardEmotionSheetView(currentCardCalendar: currentCardCalendar)
-                                        .toolbar {
-                                            Button(action: {
-                                                
-                                                if(cardModel.saveEmotions(context: managedObjectContext)){
-                                                    //Se il salvataggio va a buon fine emotion sheet dismiss alert sheet show else alert sheet input all the emotionù
-                                                  
-                                                      //alertSheet.toggle()
+                                UserPhotoOfTheDay(imageState: .success(currentCardCalendar.image))
+                                    .padding(.leading)
+                                
+                
+                                   // .padding(.leading)
+                                //Button emotions of the day
+                                Button(action: {
+                                    showingSheet.toggle()
+                                }){
+                                    Image("fiore pdf")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding()
+                                    
+                                }.sheet(isPresented: $showingSheet){
+                                    NavigationView {
+                                        GeneratedCardEmotionSheetView(currentCardCalendar: currentCardCalendar)
+                                            .toolbar {
+                                                Button(action: {
                                                     
-                                                   
-                                                }
-                                                else{
-                                                  //  alertSheet.toggle()
+                                                    showingSheet.toggle()
+                                    
+                                                    
+                                                }) {
+                                                    Text("Close")
+                                                    
                                                     
                                                 }
-                                               
-                                            }) {
-                                                  Text("Edit")
-                                                    
-                                                   
-                                                }
-                                        }
+                                            }
+                                    }
+                                }
+                                
+                            }.frame(maxWidth: .infinity)
+                            
+                            
+                            //Stack centered elements
+                            
+                            //Song of the dayText("Super star \(Image(systemName: "star"))")
+                            Text("\(Image(systemName: "music.note")) What song represents you today?   ")
+                                .font(Font.custom("Avenir-Medium", size: 16))
+                                .padding(.top)
+                            
+                            Text(currentCardCalendar.songOfTheDay)
+                                .padding(.leading, 10)
+                                .modifier(FlatGlassView())
+                                
+                            //Daily thoughts
+                            Text(" \(Image(systemName: "sun.max.fill")) What are your daily thoughts?           ")
+                            
+                                .font(Font.custom("Avenir-Medium", size: 16))
+                                
+                                .padding(.top)
+                            
+                            Text(currentCardCalendar.thoughtOfTheDay)
+                                .padding(.leading, 10)
+                                .modifier(FlatGlassView())
+                                .padding(.bottom, 15)
+                            
+                            Spacer()
+                            
+                            
+                        }
+                    )
+                RoundedRectangle(cornerRadius: 40)
+                    .stroke(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(ColorsSaved.white3),Color(ColorsSaved.white4)]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ),
+                        lineWidth: 2
+                    )
+                    .frame(width: 307.44 , height: 546.56)
+            }
+              
+            Spacer()
+            
+                Button {
+                  
+                                }
+            label: {
+                                ZStack {
+                                    Label("Share", systemImage: "square.and.arrow.up")
+                                        .bold()
+                                        .frame(minWidth: 130, minHeight: 45)
+                                        .background(.thickMaterial)
+                                        .cornerRadius(14)
+                                        .padding(.bottom, 5)
+                                        
                                 }
                             }
-                                    
-                        }.frame(maxWidth: .infinity)
-                        .padding()
-                            
-                       //Stack centered elements
-                        
-                            //Song of the day
-                            Text("What song represents you today? ")
-                                .padding(.top)
-                                .padding(.leading)
-                        Text(currentCardCalendar.songOfTheDay)
-                                .padding(.leading, 13)
-                                .padding(.trailing, 13)
-                                .textFieldStyle(RoundedBorderTextFieldStyle.init())
-                            
-                            //Daily thoughts
-                            Text("What are your daily thoughts?")
-                                .padding(.top)
-                                .padding(.leading)
-                            
-                        Text(currentCardCalendar.thoughtOfTheDay)
-                                .padding(.leading, 13)
-                                .padding(.trailing, 13)
-                                .padding(.bottom)
-                                .textFieldStyle(RoundedBorderTextFieldStyle.init())
-                        
-                        Spacer()
-                        /*
-                        Button(action: {
-                            
-                            //Share card only
-                            //Share action sheet
-                            let activityVC = UIActivityViewController(activityItems: [GeneratedCardSheetView(currentCardCalendar: currentCardCalendar).environmentObject(cardModel).toPNG()], applicationActivities: nil)
-                            
-                            let scenes = UIApplication.shared.connectedScenes
-                            let windowScene = scenes.first as? UIWindowScene
-                            
-                           // windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
-                            guard let rootViewController = windowScene?.keyWindow?.rootViewController else {return}
-                            if(rootViewController.presentedViewController == nil){
-                                rootViewController.present(activityVC.presentedViewController!, animated: true)
-                            }
-                            
-                        }){
-                            Label("Share", systemImage: "square.and.arrow.up")
-                               
-                            
-                                
-                        }.buttonStyle(.bordered)
-                            .padding()
-                         */
-                        
-                        Button(action: shareButton) {
-                            Image(systemName: "square.and.arrow.up")
-                                    .foregroundColor(.black)
-                        }
-                            
-                            
-                        Spacer()
-                        
-                        
-                        
-                        
-                    }.background{
-                        RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(Color("NormalColor"))
-                    }
-                    .padding()
-                   
-        }
-    func shareButton() {
-            let url = URL(string: "https://designcode.io")
-            var generatedCardSheetView: GeneratedCardSheetView = GeneratedCardSheetView(currentCardCalendar: currentCardCalendar)
-            let activityController = UIActivityViewController(activityItems: [generatedCardSheetView], applicationActivities: nil)
         
-
-            UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
-    }
+                        .foregroundColor(Color.primary.opacity(0.65))
+                        .padding()
+                
+        }.padding()
+                           
+        }
 
     }
 
 
 struct GeneratedCardSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooo",emotions: [Emotion]()))
+        
+        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooo",emotions: [Emotion]())).background(Image("AppBackground"))
             .environmentObject(CardModel())
     }
 }

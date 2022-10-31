@@ -36,10 +36,7 @@ struct MainView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
-        VStack (alignment: .leading)  {
-            
-            
-            
+    
             /*
             Text(".5Dots.")
                 .font(Font.custom("Avenir-Heavy", size: 30))
@@ -51,8 +48,7 @@ struct MainView: View {
             
             VStack (){
                 
-               // VStack{
-                    //Segmented Control
+             
                     Spacer()
                     
                     Picker("", selection: $segmentationSelection) {
@@ -63,10 +59,6 @@ struct MainView: View {
                         .padding([.leading,.trailing])
                        
                 
-                    
-             //   }
-                
-                
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
                    
@@ -76,7 +68,6 @@ struct MainView: View {
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
                     MoodView()
-                    //.padding()
                     
                 }
                  
@@ -84,17 +75,12 @@ struct MainView: View {
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
                    
                     CalendarView().environmentObject(cardModel)
-                   // Spacer()
-                       
-                    //CalendarView().environmentObject(cardModel)
                         
                 }
                 
-                
-                
             }
            
-        } .background(Image("AppBackground").scaledToFill())
+         .background(Image("AppBackground").scaledToFill())
     }
 }
 

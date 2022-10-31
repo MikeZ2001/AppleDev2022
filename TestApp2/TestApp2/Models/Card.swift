@@ -15,7 +15,7 @@ struct Card{
     var thoughtOfTheDay: String
     var emotions: Array<Emotion?>
    
-    
+    /*
     static var sample: [Card] {
         return [
             Card(date: Date(), image: Image(systemName: "camera"), songOfTheDay: "Ciao", thoughtOfTheDay: "Wow", emotions: [Emotion]()),
@@ -24,6 +24,6 @@ struct Card{
             Card(date: Date().diff(numDays: 2), image: Image(systemName: "camera"), songOfTheDay: "Ciao", thoughtOfTheDay: "Wow", emotions: [Emotion]())
 
         ]
-    }
+    }*/
     
 }

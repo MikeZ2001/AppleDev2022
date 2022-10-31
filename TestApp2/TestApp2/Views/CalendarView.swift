@@ -28,10 +28,9 @@ struct CalendarView: View {
                                           cardModel: cardModel, dateSelected: $dateSelected,
                                           displayEvents: $displayEvents)
                     
-                       
                         .background{
                             
-                            RoundedRectangle(cornerRadius: 40)
+                            RoundedRectangle(cornerRadius: 30)
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
                                                      ,startPoint: .topLeading,
                                                      endPoint: .bottomTrailing))
@@ -39,9 +38,9 @@ struct CalendarView: View {
                         }
                        
                     
-                    Spacer()
                     
-                }.padding()
+                    
+                }
             }.padding()
             .fullScreenCover(isPresented: $displayEvents) {
                 
@@ -61,7 +60,9 @@ struct CalendarView: View {
                             }
                             
                         }
-                }
+                    .background{
+                        Image("AppBackground")
+                    }                }
                 
             }
     }

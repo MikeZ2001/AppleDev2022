@@ -117,12 +117,6 @@ struct CardView: View {
                                 .padding(.leading, 10)
                                 .modifier(FlatGlassView())
                                 
-                            
-                            
-                            
-                            
-                            
-                            
                             //Daily thoughts
                             Text(" \(Image(systemName: "sun.max.fill")) What are your daily thoughts?           ")
                             
@@ -141,7 +135,6 @@ struct CardView: View {
                         }
                     )
                 RoundedRectangle(cornerRadius: 40)
-                
                     .stroke(
                         LinearGradient(
                             gradient: Gradient(colors: [Color(ColorsSaved.white3),Color(ColorsSaved.white4)]),
@@ -152,24 +145,13 @@ struct CardView: View {
                     )
                     .frame(width: 307.44 , height: 546.56)
             }
-                /*.background{
-                
-                RoundedRectangle(cornerRadius: 40)
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
-                                         ,startPoint: .topLeading,
-                                         endPoint: .bottomTrailing))
-               
-                    //.padding()
-            }
-            .padding()
-                 */
-                
+              
             Spacer()
             
                 Button {
                     cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
                     saveCardAlertSheet.toggle()
-                                }
+                }
             label: {
                                 ZStack {
                                     Label("Save", systemImage: "square.and.arrow.up")
@@ -185,15 +167,9 @@ struct CardView: View {
                                             }
                                         }
                                 }
-                            }
-               
-                
-            
-            //.padding()
-                      
-                        .foregroundColor(Color.primary.opacity(0.65))
-                       
-                        .padding()
+            }.disabled(false)
+                    .foregroundColor(Color.primary.opacity(0.65))
+                       .padding()
                 
         }.padding()
             
