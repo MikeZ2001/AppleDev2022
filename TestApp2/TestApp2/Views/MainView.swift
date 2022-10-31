@@ -38,23 +38,26 @@ struct MainView: View {
     var body: some View {
         VStack (alignment: .leading)  {
             
-            Text(".5Dots.")
+          /*  Text(".5Dots.")
                 .font(Font.custom("Avenir-Heavy", size: 30))
                 .font(.title2)
                 .padding(.top)
                 .padding(.leading)
-                .fontWeight(.bold)
+                .fontWeight(.bold)*/
             
             VStack (){
                 
                 VStack{
                     //Segmented Control
+                    Spacer(minLength: 120)
                     Picker("", selection: $segmentationSelection) {
                         ForEach(AppSection.allCases, id: \.self) { option in
                             Text(option.rawValue)
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                         .padding([.leading,.trailing])
+                       
+                
                     
                 }
                 
