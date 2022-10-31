@@ -20,9 +20,9 @@ struct CalendarViewLogic: UIViewRepresentable {
     func makeUIView(context: Context) -> some UICalendarView {
         let view = UICalendarView()
         
-       // var size = CGSize(width: 100, height: 100)
+       // var size = CGSize(width: 10, height: 10)
         
-      //  view.frame.size = size
+        //view.frame.size = size
         
        // view.delegate = context.coordinator as! any UICalendarViewDelegate
         view.calendar = Calendar(identifier: .gregorian)

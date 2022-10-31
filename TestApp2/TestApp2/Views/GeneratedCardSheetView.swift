@@ -18,7 +18,7 @@ struct GeneratedCardSheetView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    var currentCardCalendar: Card
+    @State var currentCardCalendar: Card
     
     var body: some View {
         
@@ -33,15 +33,16 @@ struct GeneratedCardSheetView: View {
                         HStack (alignment: .center) {
     
                                 //Image
-                        SingleImagePickerView(cardModel: cardModel)
+                            SingleImagePickerView(cardModel: cardModel).padding()
                             
                        //Button emotions of the day
                             Button(action: {
                                 showingSheet.toggle()
                             }){
-                                Image("fiore")
+                                Image("fiore pdf")
                                 .resizable()
                                 .scaledToFit()
+                                .padding()
                                 .bold()
                                 .font(Font.custom("Helvetica Neue", size: 24.0))
                                 
@@ -99,10 +100,21 @@ struct GeneratedCardSheetView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle.init())
                         
                         Spacer()
+                        /*
                         Button(action: {
                             
                             //Share card only
+                            //Share action sheet
+                            let activityVC = UIActivityViewController(activityItems: [GeneratedCardSheetView(currentCardCalendar: currentCardCalendar).environmentObject(cardModel).toPNG()], applicationActivities: nil)
                             
+                            let scenes = UIApplication.shared.connectedScenes
+                            let windowScene = scenes.first as? UIWindowScene
+                            
+                           // windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
+                            guard let rootViewController = windowScene?.keyWindow?.rootViewController else {return}
+                            if(rootViewController.presentedViewController == nil){
+                                rootViewController.present(activityVC.presentedViewController!, animated: true)
+                            }
                             
                         }){
                             Label("Share", systemImage: "square.and.arrow.up")
@@ -111,6 +123,12 @@ struct GeneratedCardSheetView: View {
                                 
                         }.buttonStyle(.bordered)
                             .padding()
+                         */
+                        
+                        Button(action: shareButton) {
+                            Image(systemName: "square.and.arrow.up")
+                                    .foregroundColor(.black)
+                        }
                             
                             
                         Spacer()
@@ -125,11 +143,24 @@ struct GeneratedCardSheetView: View {
                     .padding()
                    
         }
+    func shareButton() {
+            let url = URL(string: "https://designcode.io")
+            var generatedCardSheetView: GeneratedCardSheetView = GeneratedCardSheetView(currentCardCalendar: currentCardCalendar)
+            let activityController = UIActivityViewController(activityItems: [generatedCardSheetView], applicationActivities: nil)
+        
+
+            UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
+    }
+
     }
 
 
 struct GeneratedCardSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooo",emotions: [Emotion]())).environmentObject(CardModel())
+        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooo",emotions: [Emotion]()))
+            .environmentObject(CardModel())
     }
 }
+
+
+

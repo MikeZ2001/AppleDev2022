@@ -123,6 +123,7 @@ class CardModel: ObservableObject{
         
         windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
          */
+         
         
         //group all in one object card (image,emotion,card info)
         
@@ -279,6 +280,8 @@ class CardModel: ObservableObject{
         
         //print("Emotion DB Array:   \(emotionsDB)")
     }
+    
+ 
     
 }
 

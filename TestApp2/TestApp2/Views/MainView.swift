@@ -38,18 +38,23 @@ struct MainView: View {
     var body: some View {
         VStack (alignment: .leading)  {
             
-          /*  Text(".5Dots.")
+            
+            
+            /*
+            Text(".5Dots.")
                 .font(Font.custom("Avenir-Heavy", size: 30))
                 .font(.title2)
-                .padding(.top)
-                .padding(.leading)
-                .fontWeight(.bold)*/
+                .padding()
+              
+                .fontWeight(.bold)
+             */
             
             VStack (){
                 
-                VStack{
+               // VStack{
                     //Segmented Control
-                    Spacer(minLength: 120)
+                    Spacer()
+                    
                     Picker("", selection: $segmentationSelection) {
                         ForEach(AppSection.allCases, id: \.self) { option in
                             Text(option.rawValue)
@@ -59,12 +64,13 @@ struct MainView: View {
                        
                 
                     
-                }
+             //   }
                 
                 
                 //Logic of Segmented Control
                 if(segmentationSelection.rawValue.elementsEqual("My Card")){
-                    CardView()
+                   
+                    CardView().environmentObject(cardModel)
                     
                 }
                 
@@ -76,9 +82,10 @@ struct MainView: View {
                  
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
-                    Spacer()
-                    CalendarView()
-                    Spacer()
+                   
+                    CalendarView().environmentObject(cardModel)
+                   // Spacer()
+                       
                     //CalendarView().environmentObject(cardModel)
                         
                 }

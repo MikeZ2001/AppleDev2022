@@ -34,13 +34,26 @@ struct MoodView: View {
     
     @EnvironmentObject var cardModel: CardModel
     
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var dateSelected: DateComponents?
     @State private var displayEvents = false
     
+  
     var body: some View {
         
         
         VStack {
+            
+            
+            Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                
+                    
+                    
+                 //   cardModel.deleteDataOfDB(context: managedObjectContext)
+                
+            }
             
             List(cardData) { item in
                 
@@ -80,6 +93,7 @@ struct MoodView: View {
              
             
         }
+     
             
             
             /*

@@ -25,14 +25,57 @@ struct TestApp2App: App {
             MainView()
                 .environment(\.managedObjectContext, cardModel.container.viewContext)
                 .environmentObject(cardModel)
-              
-            // provide the model as environment object
+                .onAppear{
+                    
+                    setPermissionNotification()
+                    setScheduleNotification()
+            
+                }
+            
         }
     }
+    
+    func setPermissionNotification(){
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func setScheduleNotification(){
+        let content = UNMutableNotificationContent()
+        content.title = "How are you today?"
+        content.subtitle = "It's time to discover you five dots of the day"
+        content.sound = UNNotificationSound.default
+
+        // show this notification five seconds from now
+      //  let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        var dateComponents = DateComponents()
+        dateComponents.hour = 14
+        dateComponents.minute = 18
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
+    }
+   
+    
+ 
 }
 
 
+
 extension View {
+    
+ 
     
     
 func getSafeArea() -> UIEdgeInsets {

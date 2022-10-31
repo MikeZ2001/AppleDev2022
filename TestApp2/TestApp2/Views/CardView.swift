@@ -164,25 +164,11 @@ struct CardView: View {
             .padding()
                  */
                 
-            
             Spacer()
             
-            Button(action: {
-                cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
-                
-                /*
-                //Share action sheet
-                let activityVC = UIActivityViewController(activityItems: [CardView().environmentObject(cardModel).toPNG()], applicationActivities: nil)
-                let scenes = UIApplication.shared.connectedScenes
-                let windowScene = scenes.first as? UIWindowScene
-                
-                windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
-                 */
-                
-                saveCardAlertSheet.toggle()
-            }){
                 Button {
-                                    //TODO:- add action
+                    cardModel.saveCard(songOfTheDay: myInput1, thoughtOfTheDay: myInput2, context: managedObjectContext)
+                    saveCardAlertSheet.toggle()
                                 }
             label: {
                                 ZStack {
@@ -202,7 +188,7 @@ struct CardView: View {
                             }
                
                 
-            }
+            
             //.padding()
                       
                         .foregroundColor(Color.primary.opacity(0.65))

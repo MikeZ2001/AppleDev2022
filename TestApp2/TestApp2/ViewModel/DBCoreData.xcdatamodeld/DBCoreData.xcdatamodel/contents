@@ -6,12 +6,12 @@
         <attribute name="imageOfTheCard" attributeType="Binary"/>
         <attribute name="songOfTheDay" attributeType="String"/>
         <attribute name="thoughtOfTheDay" attributeType="String"/>
-        <relationship name="emotion" toMany="YES" deletionRule="No Action" destinationEntity="EmotionCoreDataEntity" inverseName="relationship" inverseEntity="EmotionCoreDataEntity"/>
+        <relationship name="emotion" toMany="YES" deletionRule="Cascade" destinationEntity="EmotionCoreDataEntity" inverseName="relationship" inverseEntity="EmotionCoreDataEntity"/>
     </entity>
     <entity name="EmotionCoreDataEntity" representedClassName="EmotionCoreDataEntity" syncable="YES">
         <attribute name="color" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="size" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CardCoreDataEntity" inverseName="emotion" inverseEntity="CardCoreDataEntity"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CardCoreDataEntity" inverseName="emotion" inverseEntity="CardCoreDataEntity"/>
     </entity>
 </model>
