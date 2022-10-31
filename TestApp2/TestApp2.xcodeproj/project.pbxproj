@@ -32,6 +32,7 @@
 		04E5EAC928FD405000A1D878 /* TestApp2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5EAC828FD405000A1D878 /* TestApp2Tests.swift */; };
 		04E5EAD328FD405000A1D878 /* TestApp2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5EAD228FD405000A1D878 /* TestApp2UITests.swift */; };
 		04E5EAD528FD405000A1D878 /* TestApp2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5EAD428FD405000A1D878 /* TestApp2UITestsLaunchTests.swift */; };
+		2F00A1A429101DD200430355 /* ShareButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00A1A329101DD200430355 /* ShareButtonTest.swift */; };
 		2FD4B498290C2FE90088ACED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4B497290C2FE90088ACED /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		04E5EACE28FD405000A1D878 /* TestApp2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestApp2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E5EAD228FD405000A1D878 /* TestApp2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp2UITests.swift; sourceTree = "<group>"; };
 		04E5EAD428FD405000A1D878 /* TestApp2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2F00A1A329101DD200430355 /* ShareButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonTest.swift; sourceTree = "<group>"; };
 		2FD4B497290C2FE90088ACED /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 				04445EC029052CB100E80C02 /* SingleImagePickerView.swift */,
 				049DFCB0290AB5730054BB73 /* CalendarView.swift */,
 				049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */,
+				2F00A1A329101DD200430355 /* ShareButtonTest.swift */,
 				049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */,
 				2FD4B497290C2FE90088ACED /* Notifications.swift */,
 			);
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AF05D82903DB5D003A9A27 /* CardView.swift in Sources */,
+				2F00A1A429101DD200430355 /* ShareButtonTest.swift in Sources */,
 				04176CFB290D2C4C00D58B2E /* DateExtension.swift in Sources */,
 				04176CF4290D29C300D58B2E /* EmotionCoreDataEntity+CoreDataClass.swift in Sources */,
 				04E5EABA28FD404F00A1D878 /* MainView.swift in Sources */,
