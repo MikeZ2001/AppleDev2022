@@ -35,7 +35,8 @@ struct CalendarView: View {
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
                                                      ,startPoint: .topLeading,
                                                      endPoint: .bottomTrailing))
-                            
+                                .background(.ultraThinMaterial,  in: RoundedRectangle(cornerRadius: 30))
+                                
                         }
                         
                         
