@@ -21,6 +21,12 @@ var energizedEmotion = Emotion(size: 50, color: Color("EnergizedColor"))
 
 
 
+var cheerfulEmotion = Emotion(size: 50, color: Color("CheerfulColor"))
+var quiteCheerfulEmotion = Emotion(size: 40, color: Color("QuiteCheerfulColor"))
+var NormalColorCheerfulSensitiveEmotion = Emotion(size: 30, color: Color("CheerfulSensitiveNormalColor"))
+var quiteSensitiveEmotion = Emotion(size: 40, color: Color("QuiteSensitiveColor"))
+var sensitiveEmotion = Emotion(size: 50, color: Color("SensitiveColor"))
+
 
 
 //Insecure - Self Confident (Default Values)

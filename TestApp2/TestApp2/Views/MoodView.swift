@@ -51,7 +51,7 @@ struct MoodView: View {
                 
                     
                     
-                 //   cardModel.deleteDataOfDB(context: managedObjectContext)
+                    cardModel.deleteDataOfDB(context: managedObjectContext)
                 
             }
             

@@ -43,11 +43,11 @@ struct GeneratedCardEmotionSheetView: View {
             //Cheerful/Sensitive HStack
             HStack{
            
-                CurrentDotView2(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
-                CurrentDotView2(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size, currentCardCalendar: currentCardCalendar).padding()
-                CurrentDotView2(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size, currentCardCalendar: currentCardCalendar)
-                CurrentDotView2(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size, currentCardCalendar: currentCardCalendar).padding()
+                CurrentDotView2(currentColor: cheerfulEmotion.color,currentSize: cheerfulEmotion.size, currentCardCalendar: currentCardCalendar).padding()
+                CurrentDotView2(currentColor: quiteCheerfulEmotion.color,currentSize: quiteCheerfulEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: NormalColorCheerfulSensitiveEmotion.color,currentSize: NormalColorCheerfulSensitiveEmotion.size, currentCardCalendar: currentCardCalendar).padding()
+                CurrentDotView2(currentColor: quiteSensitiveEmotion.color,currentSize: quiteSensitiveEmotion.size, currentCardCalendar: currentCardCalendar)
+                CurrentDotView2(currentColor: sensitiveEmotion.color,currentSize: sensitiveEmotion.size, currentCardCalendar: currentCardCalendar).padding()
                
             }
             

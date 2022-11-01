@@ -210,11 +210,11 @@ class CardModel: ObservableObject{
         }
         
         //Only for test , it should be cheerful sensitive
-        if(emotion.color == insecureEmotion.color ||
-           emotion.color == quiteInsecureEmotion.color ||
-           emotion.color == InsecureSelfConfidentNormalEmotion.color ||
-           emotion.color == quiteSelfConfidentEmotion.color ||
-           emotion.color == selfConfidentEmotion.color){
+        if(emotion.color == cheerfulEmotion.color ||
+           emotion.color == quiteCheerfulEmotion.color ||
+           emotion.color == NormalColorCheerfulSensitiveEmotion.color ||
+           emotion.color == quiteSensitiveEmotion.color ||
+           emotion.color == sensitiveEmotion.color){
             
             savedEmotion[1] = emotion
             
@@ -279,6 +279,27 @@ class CardModel: ObservableObject{
         
         
         //print("Emotion DB Array:   \(emotionsDB)")
+    }
+    
+    func deleteDataOfDB(context: NSManagedObjectContext){
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CardCoreDataEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try container.persistentStoreCoordinator.execute(deleteRequest, with: context)
+        } catch let error as NSError {
+            // TODO: handle the error
+        }
+    }
+    
+    func shareCard(){
+        
+        
+        let activityVC = UIActivityViewController(activityItems: [GeneratedCardSheetView(currentCardCalendar: currentCardCalendar!).toPNG()], applicationActivities: nil)
+           let scenes = UIApplication.shared.connectedScenes
+           let windowScene = scenes.first as? UIWindowScene
+            
+           windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }
     
  

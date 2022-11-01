@@ -44,11 +44,11 @@ struct SheetView: View {
             
             //Cheerful/Sensitive HStack
             HStack{
-                CurrentDotView(currentColor: relaxedEmotion.color,currentSize: relaxedEmotion.size).padding()
-                CurrentDotView(currentColor: quiteRelaxedEmotion.color,currentSize: quiteRelaxedEmotion.size)
-                CurrentDotView(currentColor: RelaxedStressedNormalEmotion.color,currentSize: RelaxedStressedNormalEmotion.size).padding()
-                CurrentDotView(currentColor: quiteStressedEmotion.color,currentSize: quiteStressedEmotion.size)
-                CurrentDotView(currentColor: stressedEmotion.color,currentSize: stressedEmotion.size).padding()
+                CurrentDotView(currentColor: cheerfulEmotion.color,currentSize: cheerfulEmotion.size).padding()
+                CurrentDotView(currentColor: quiteCheerfulEmotion.color,currentSize: quiteCheerfulEmotion.size)
+                CurrentDotView(currentColor: NormalColorCheerfulSensitiveEmotion.color,currentSize: NormalColorCheerfulSensitiveEmotion.size).padding()
+                CurrentDotView(currentColor: quiteSensitiveEmotion.color,currentSize: quiteSensitiveEmotion.size)
+                CurrentDotView(currentColor: sensitiveEmotion.color,currentSize: sensitiveEmotion.size).padding()
                
             }
             
