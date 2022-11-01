@@ -296,10 +296,21 @@ class CardModel: ObservableObject{
         
         
         let activityVC = UIActivityViewController(activityItems: [GeneratedCardSheetView(currentCardCalendar: currentCardCalendar!).toPNG()], applicationActivities: nil)
+        
+            activityVC.isModalInPresentation = true
+        
            let scenes = UIApplication.shared.connectedScenes
            let windowScene = scenes.first as? UIWindowScene
-            
-           windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
+        
+     
+            //activityVC.searchDisplayController?.isActive
+      
+        
+        //Presentation , ShareSheet
+            windowScene?.keyWindow?.rootViewController?.presentedViewController?.present(activityVC, animated: true, completion: nil)
+       // source.presentedViewController?.present(activityVC, animated: true)
+        
+        
     }
     
  

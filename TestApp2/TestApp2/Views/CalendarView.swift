@@ -24,21 +24,23 @@ struct CalendarView: View {
                 
                 ScrollView{
                     
+                    
                         CalendarViewLogic(interval: DateInterval(start: .distantPast, end: .distantFuture),
                                           cardModel: cardModel, dateSelected: $dateSelected,
                                           displayEvents: $displayEvents)
-                    
+                        
                         .background{
                             
                             RoundedRectangle(cornerRadius: 30)
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(ColorsSaved.white1),Color(ColorsSaved.white2)])
                                                      ,startPoint: .topLeading,
                                                      endPoint: .bottomTrailing))
-                           
+                            
                         }
-                       
-                    
-                    
+                        
+                        
+                        
+                        
                     
                 }
             }.padding()

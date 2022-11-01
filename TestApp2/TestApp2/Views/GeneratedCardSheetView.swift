@@ -72,28 +72,31 @@ struct GeneratedCardSheetView: View {
                                     
                                 }.sheet(isPresented: $showingSheet){
                                     NavigationView {
-                                        GeneratedCardEmotionSheetView(currentCardCalendar: currentCardCalendar)
-                                            .toolbar {
-                                                Button(action: {
-                                                    
-                                                    showingSheet.toggle()
-                                    
-                                                    
-                                                }) {
-                                                    Text("Close")
-                                                    
-                                                    
+                                     
+                                        
+                                            GeneratedCardEmotionSheetView(currentCardCalendar: currentCardCalendar)
+                                                .toolbar {
+                                                    Button(action: {
+                                                        
+                                                        showingSheet.toggle()
+                                                        
+                                                        
+                                                    }) {
+                                                        Text("Close")
+                                                        
+                                                        
+                                                    }
                                                 }
-                                            }
                                     }
-                                }
+                                    }
+                                
                                 
                             }.frame(maxWidth: .infinity)
                             
                             
                             //Stack centered elements
                             
-                            //Song of the dayText("Super star \(Image(systemName: "star"))")
+                     
                             Text("\(Image(systemName: "music.note")) What song represents you today?   ")
                                 .font(Font.custom("Avenir-Medium", size: 16))
                                 .padding(.top)
@@ -134,7 +137,7 @@ struct GeneratedCardSheetView: View {
             Spacer()
             
                 Button {
-                  
+                    cardModel.shareCard()
                                 }
             label: {
                                 ZStack {
@@ -152,7 +155,7 @@ struct GeneratedCardSheetView: View {
                         .padding()
                 
         }.padding()
-                           
+            .background(Image("AppBackground"))
         }
 
     }

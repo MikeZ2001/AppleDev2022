@@ -62,10 +62,6 @@ struct CalendarViewLogic: UIViewRepresentable {
           
             guard let dateComponents else { return }
         
-        
-            
-            //let foundCard = cardModel.cardDataEntity.filter{$0.date.startOfDay == dateComponents.date?.startOfDay}
-            
             print("Date components date:   ",Date().getDateToString(date: dateComponents.date!))
             
             for card in parent.cardData {
@@ -76,29 +72,21 @@ struct CalendarViewLogic: UIViewRepresentable {
                     
                     parent.displayEvents = true
                     
-                    var uiImage = UIImage(data: card.imageOfTheCard)
-                    var image = Image(uiImage: uiImage!)
+                    let uiImage = UIImage(data: card.imageOfTheCard)
+                    let image = Image(uiImage: uiImage!)
                    
                     var emotions = [Emotion]()
                     
                     
                     for emotion in card.emotion{
                         
-                        var emotionEntity: Emotion = Emotion(size: 0, color: Color((emotion as AnyObject).color!))
+                        let emotionEntity: Emotion = Emotion(size: 0, color: Color((emotion as AnyObject).color!))
                         emotions.append(emotionEntity)
                         print("\(emotionEntity)")
                     }
                      
                     
-                   // let cardEmotion = card.emotion.allObjects as? [EmotionCoreDataEntity]
-                    
-                    
-                    
-                    //demo Behaviour for card emotions [inscureEmotion,stressedEmotion]
-                    
-                    
-                   // var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: [insecureEmotion,stressedEmotion,selfConfidentEmotion,calmEmotion,selfConfidentEmotion])
-                    
+            
                     var currentCard = Card(date: card.cardDate, image: image, songOfTheDay: card.songOfTheDay!, thoughtOfTheDay: card.thoughtOfTheDay!, emotions: emotions)
                     
                     print("Current Card Selected Calendar ::::\(currentCard)")
@@ -113,17 +101,7 @@ struct CalendarViewLogic: UIViewRepresentable {
                 
             }
             
-            //let foundCard = cardModel.cardData.filter{$0.cardDate.getCurrentDateFormatted().startOfDay == dateComponents.date?.startOfDay}
-          /*
-            if(!foundCard.isEmpty){
-                parent.displayEvents.toggle()
-            }else
-            {
-                print("No card found in that date")
-            }
-           */
-            
-           
+      
         }
         
         func dateSelection(_ selection: UICalendarSelectionSingleDate,
