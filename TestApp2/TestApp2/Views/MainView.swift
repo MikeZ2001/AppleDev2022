@@ -19,7 +19,7 @@ import Charts
 enum AppSection : String, CaseIterable {
     case MyCard = "My Card"
     case MyJourney = "My Journey"
-    case MyMood = "My Mood"
+  //  case MyMood = "My Mood"
 }
 
 struct MainView: View {
@@ -28,10 +28,7 @@ struct MainView: View {
     
     @State var segmentationSelection : AppSection = .MyCard
     
-   // @ObservedObject var cardModel = CardModel()
-    
     @EnvironmentObject var cardModel: CardModel
-    
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -66,10 +63,12 @@ struct MainView: View {
                     
                 }
                 
+                /*
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
                     MoodView()
                     
                 }
+                 */
                  
                 
                 if(segmentationSelection.rawValue.elementsEqual("My Journey")){
@@ -78,9 +77,7 @@ struct MainView: View {
                         
                 }
                 
-            }
-           
-         .background(Image("AppBackground").scaledToFill())
+            }.background(Image("AppBackground").scaledToFill())
     }
 }
 
