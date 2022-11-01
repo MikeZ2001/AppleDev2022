@@ -65,7 +65,7 @@ struct GeneratedCardSheetView: View {
                                 Button(action: {
                                     showingSheet.toggle()
                                 }){
-                                    Image("fiore pdf")
+                                    Image("fiore def")
                                         .resizable()
                                         .scaledToFit()
                                         .padding()

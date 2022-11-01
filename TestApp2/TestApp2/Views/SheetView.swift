@@ -38,20 +38,23 @@ struct SheetView: View {
             Spacer()
             Text("Energized") .font(Font.custom("Avenir-Medium", size: 16))
                 
-            }.padding(.trailing)
+            }
+            .padding(.trailing)
              .padding(.leading)
             
             
             //Cheerful/Sensitive HStack
+            
             HStack{
+             
                 CurrentDotView(currentColor: cheerfulEmotion.color,currentSize: cheerfulEmotion.size).padding()
                 CurrentDotView(currentColor: quiteCheerfulEmotion.color,currentSize: quiteCheerfulEmotion.size)
                 CurrentDotView(currentColor: NormalColorCheerfulSensitiveEmotion.color,currentSize: NormalColorCheerfulSensitiveEmotion.size).padding()
                 CurrentDotView(currentColor: quiteSensitiveEmotion.color,currentSize: quiteSensitiveEmotion.size)
                 CurrentDotView(currentColor: sensitiveEmotion.color,currentSize: sensitiveEmotion.size).padding()
-               
+             
+                    
             }
-            
             HStack {
             Text("Cheerful") .font(Font.custom("Avenir-Medium", size: 16))
                 
@@ -61,7 +64,8 @@ struct SheetView: View {
             Text("Sensitive")
                     .font(Font.custom("Avenir-Medium", size: 16))
                 
-            }.padding(.trailing)
+            }
+                .padding(.trailing)
                 .padding(.leading)
              
              
@@ -75,7 +79,7 @@ struct SheetView: View {
                 CurrentDotView(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size)
                 CurrentDotView(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size).padding()
             }
-            
+           
             HStack {
             Text("Insecure") .font(Font.custom("Avenir-Medium", size: 16))
                 Spacer()
@@ -104,7 +108,9 @@ struct SheetView: View {
                 
                 
                 Group{
+                    
                     HStack{
+                        
                         CurrentDotView(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size).padding()
                         CurrentDotView(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size)
                         CurrentDotView(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size).padding()
@@ -122,11 +128,13 @@ struct SheetView: View {
                         Text("Focused") .font(Font.custom("Avenir-Medium", size: 16))
                     }.padding(.trailing)
                         .padding(.leading)
+                
                 }
                 
             }
             
-        }.padding()
+        }.padding(.leading)
+            .padding(.trailing)
             
         }
     }

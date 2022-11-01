@@ -46,11 +46,11 @@ struct UserPhotoOfTheDay: View{
                 
                 Rectangle().fill(
                     LinearGradient(
-                                       colors: [.yellow, .orange],
+                                       colors: [.white],
                                        startPoint: .top,
                                        endPoint: .bottom
                                    )
-                    //Color(red: 1, green: 1, blue: 1).opacity(0.42)
+                    //Color(red: 1, green: 1, blue: 1).opacity(0)
             )
                 .cornerRadius(14)
                 
@@ -69,10 +69,13 @@ struct UserImageStates: View{
        // case .loading:
          //   ProgressView()
         case .empty:
-            Image(systemName: "camera")
-                .font(.system(size:40))
-                .foregroundColor(.white)
-   
+            Image("camera")
+                //.frame(width:150, height:200)
+                //.font(.system(size:40))
+                //.foregroundColor(.white)
+                .resizable()
+             
+                            .cornerRadius(14.0)
         }
     }
     

@@ -77,7 +77,7 @@ struct MainView: View {
                         
                 }
                 
-            }.background(Image("AppBackground").scaledToFill())
+            }.background(Image("back2").scaledToFill())
     }
 }
 
