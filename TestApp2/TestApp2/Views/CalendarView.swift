@@ -15,6 +15,7 @@ struct CalendarView: View {
     @State private var dateSelected: DateComponents?
     @State var displayEvents = false
     
+    @State var NoCardFound: Bool = false
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardFetchedResults: FetchedResults<CardCoreDataEntity>
     
 
@@ -27,7 +28,8 @@ struct CalendarView: View {
                     
                         CalendarViewLogic(interval: DateInterval(start: .distantPast, end: .distantFuture),
                                           cardModel: cardModel, dateSelected: $dateSelected,
-                                          displayEvents: $displayEvents)
+                                          displayEvents: $displayEvents,NoCardFound: $NoCardFound
+                        )
                         
                         .background{
                             
@@ -45,6 +47,12 @@ struct CalendarView: View {
                     
                 }
             }.padding()
+            .alert("No card found in this day", isPresented: $NoCardFound) {
+                Button("Continue"){
+                    
+                  
+                }
+            }
             .fullScreenCover(isPresented: $displayEvents) {
                 
                 //Here call card view

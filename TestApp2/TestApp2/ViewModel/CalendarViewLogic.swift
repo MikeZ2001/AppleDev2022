@@ -14,6 +14,7 @@ struct CalendarViewLogic: UIViewRepresentable {
     @ObservedObject var cardModel: CardModel
     @Binding var dateSelected: DateComponents?
     @Binding var displayEvents: Bool
+    @Binding var NoCardFound: Bool
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id, order: .reverse)]) var cardData: FetchedResults<CardCoreDataEntity>
     
     
@@ -96,6 +97,8 @@ struct CalendarViewLogic: UIViewRepresentable {
                     //parent.displayEvents.toggle()
                     
                     print("Oleee")
+                }else{
+                    parent.NoCardFound = true
                 }
                 
                 

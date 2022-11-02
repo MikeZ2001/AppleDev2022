@@ -115,15 +115,7 @@ class CardModel: ObservableObject{
     //Function for the emotion sheet
     func saveCard(songOfTheDay: String,thoughtOfTheDay: String , context: NSManagedObjectContext){
         
-        /*
-        //Share action sheet
-        let activityVC = UIActivityViewController(activityItems: [CardView().toPNG()], applicationActivities: nil)
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
         
-        windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
-         */
-         
         
         //group all in one object card (image,emotion,card info)
         

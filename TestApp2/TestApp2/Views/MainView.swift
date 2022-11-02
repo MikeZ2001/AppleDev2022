@@ -19,7 +19,7 @@ import Charts
 enum AppSection : String, CaseIterable {
     case MyCard = "My Card"
     case MyJourney = "My Journey"
-    case MyMood = "My Mood"
+  //  case MyMood = "My Mood"
 }
 
 struct MainView: View {
@@ -63,11 +63,12 @@ struct MainView: View {
                     
                 }
                 
-                
+                /*
                 if(segmentationSelection.rawValue.elementsEqual("My Mood")){
                     MoodView()
                     
                 }
+                 */
                  
                  
                  
