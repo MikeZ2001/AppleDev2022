@@ -18,7 +18,9 @@
 		04445EC129052CB100E80C02 /* SingleImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC029052CB100E80C02 /* SingleImagePickerView.swift */; };
 		04445EC32905407E00E80C02 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC22905407E00E80C02 /* Card.swift */; };
 		04445EC52905416C00E80C02 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445EC42905416C00E80C02 /* Emotion.swift */; };
+		04452A302912E53D00F1C5D0 /* CurrentDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452A2F2912E53D00F1C5D0 /* CurrentDotView.swift */; };
 		0449551A2906D3C20000D632 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044955192906D3C20000D632 /* Database.swift */; };
+		045552052912CE57000E70F1 /* RadioButtonEmotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045552042912CE57000E70F1 /* RadioButtonEmotions.swift */; };
 		049DFCB1290AB5730054BB73 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB0290AB5730054BB73 /* CalendarView.swift */; };
 		049DFCB3290AC44B0054BB73 /* GeneratedCardSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */; };
 		049DFCB5290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */; };
@@ -66,7 +68,9 @@
 		04445EC029052CB100E80C02 /* SingleImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImagePickerView.swift; sourceTree = "<group>"; };
 		04445EC22905407E00E80C02 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		04445EC42905416C00E80C02 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		04452A2F2912E53D00F1C5D0 /* CurrentDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDotView.swift; sourceTree = "<group>"; };
 		044955192906D3C20000D632 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		045552042912CE57000E70F1 /* RadioButtonEmotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonEmotions.swift; sourceTree = "<group>"; };
 		049DFCB0290AB5730054BB73 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		049DFCB2290AC44B0054BB73 /* GeneratedCardSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedCardSheetView.swift; sourceTree = "<group>"; };
 		049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedCardEmotionSheetView.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				2F00A1A329101DD200430355 /* ShareButtonTest.swift */,
 				049DFCB4290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift */,
 				2FD4B497290C2FE90088ACED /* Notifications.swift */,
+				045552042912CE57000E70F1 /* RadioButtonEmotions.swift */,
+				04452A2F2912E53D00F1C5D0 /* CurrentDotView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,11 +363,13 @@
 				04176CF4290D29C300D58B2E /* EmotionCoreDataEntity+CoreDataClass.swift in Sources */,
 				04E5EABA28FD404F00A1D878 /* MainView.swift in Sources */,
 				04176CE7290D261100D58B2E /* DBCoreData.xcdatamodeld in Sources */,
+				045552052912CE57000E70F1 /* RadioButtonEmotions.swift in Sources */,
 				04E5EAB828FD404F00A1D878 /* TestApp2App.swift in Sources */,
 				04445EC129052CB100E80C02 /* SingleImagePickerView.swift in Sources */,
 				04AF05E02903FD69003A9A27 /* CardModel.swift in Sources */,
 				04445EC32905407E00E80C02 /* Card.swift in Sources */,
 				049DFCB5290AD22B0054BB73 /* GeneratedCardEmotionSheetView.swift in Sources */,
+				04452A302912E53D00F1C5D0 /* CurrentDotView.swift in Sources */,
 				0449551A2906D3C20000D632 /* Database.swift in Sources */,
 				2FD4B498290C2FE90088ACED /* Notifications.swift in Sources */,
 				04445EC52905416C00E80C02 /* Emotion.swift in Sources */,

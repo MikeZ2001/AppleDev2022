@@ -76,7 +76,7 @@ struct MoodView: View {
         
         
         VStack {
-            /*
+            
              Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
              
              
@@ -85,7 +85,7 @@ struct MoodView: View {
              
              }
             
-
+            /*
              
              List(cardData) { item in
              

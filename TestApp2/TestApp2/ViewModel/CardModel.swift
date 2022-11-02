@@ -151,6 +151,8 @@ class CardModel: ObservableObject{
         
         print("DB Current Card:   \(String(describing: cardDB))")
         
+        imageState = .empty
+        
         //print("Emotion DB Array:   \(emotionsDB)")
     }
     
@@ -159,6 +161,8 @@ class CardModel: ObservableObject{
         do{
             try context.save()
             print("Data saved")
+            
+            
             
         }catch{
             print("WE COULD NOT SAVE DATA")

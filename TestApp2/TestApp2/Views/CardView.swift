@@ -164,6 +164,8 @@ struct CardView: View {
                                             Button("Continue"){
                                                 
                                                 //Set default fields
+                                                myInput1 = " "
+                                                myInput2 = " "
                                             }
                                         }
                                 }
