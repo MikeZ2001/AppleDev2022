@@ -67,26 +67,31 @@ struct SheetView: View {
             }
                 .padding(.trailing)
                 .padding(.leading)
+            
+            
+            //Distracted-Focused
+            Group{
+                
+                HStack{
+                    
+                    CurrentDotView(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size).padding()
+                    CurrentDotView(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size)
+                    CurrentDotView(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size).padding()
+                    CurrentDotView(currentColor: quiteFocusedEmotion.color,currentSize: quiteFocusedEmotion.size)
+                    CurrentDotView(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size).padding()
+                }
+                
+                
+                
+                
+                HStack{
+                    Text("Distracted") .font(Font.custom("Avenir-Medium", size: 16))
+                        .font(.subheadline)
+                    Spacer()
+                    Text("Focused") .font(Font.custom("Avenir-Medium", size: 16))
+                }.padding(.trailing)
+                    .padding(.leading)
              
-             
-            
-            // Insecure - Self Confident HStack
-            
-            HStack{
-                CurrentDotView(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size).padding()
-                CurrentDotView(currentColor: quiteInsecureEmotion.color,currentSize: quiteInsecureEmotion.size)
-                CurrentDotView(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size).padding()
-                CurrentDotView(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size)
-                CurrentDotView(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size).padding()
-            }
-           
-            HStack {
-            Text("Insecure") .font(Font.custom("Avenir-Medium", size: 16))
-                Spacer()
-            Text("Self Confident") .font(Font.custom("Avenir-Medium", size: 16))
-            }.padding(.trailing)
-                .padding(.leading)
-            
             //Relaxed - Stressed HStack
             
             HStack{
@@ -105,29 +110,26 @@ struct SheetView: View {
                     
                 }.padding(.trailing)
                     .padding(.leading)
-                
-                
-                Group{
-                    
-                    HStack{
-                        
-                        CurrentDotView(currentColor: distractedEmotion.color,currentSize: distractedEmotion.size).padding()
-                        CurrentDotView(currentColor: quiteDistractedEmotion.color,currentSize: quiteDistractedEmotion.size)
-                        CurrentDotView(currentColor: distractedFocusedNormalEmotion.color,currentSize: distractedFocusedNormalEmotion.size).padding()
-                        CurrentDotView(currentColor: quiteFocusedEmotion.color,currentSize: quiteFocusedEmotion.size)
-                        CurrentDotView(currentColor: focusedEmotion.color,currentSize: focusedEmotion.size).padding()
-                    }
-                    
-                    
-                    
-                    
-                    HStack{
-                        Text("Distracted") .font(Font.custom("Avenir-Medium", size: 16))
-                            .font(.subheadline)
-                        Spacer()
-                        Text("Focused") .font(Font.custom("Avenir-Medium", size: 16))
-                    }.padding(.trailing)
-                        .padding(.leading)
+            
+            // Insecure - Self Confident HStack
+            
+            HStack{
+                CurrentDotView(currentColor: insecureEmotion.color,currentSize: insecureEmotion.size).padding()
+                CurrentDotView(currentColor: quiteInsecureEmotion.color,currentSize: quiteInsecureEmotion.size)
+                CurrentDotView(currentColor: InsecureSelfConfidentNormalEmotion.color,currentSize: InsecureSelfConfidentNormalEmotion.size).padding()
+                CurrentDotView(currentColor: quiteSelfConfidentEmotion.color,currentSize: quiteSelfConfidentEmotion.size)
+                CurrentDotView(currentColor: selfConfidentEmotion.color,currentSize: selfConfidentEmotion.size).padding()
+            }
+           
+            HStack {
+            Text("Insecure") .font(Font.custom("Avenir-Medium", size: 16))
+                Spacer()
+            Text("Self Confident") .font(Font.custom("Avenir-Medium", size: 16))
+            }.padding(.trailing)
+                .padding(.leading)
+            
+           
+        
                 
                 }
                 

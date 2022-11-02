@@ -55,8 +55,8 @@ struct TestApp2App: App {
         // show this notification five seconds from now
       //  let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         var dateComponents = DateComponents()
-        dateComponents.hour = 23
-        dateComponents.minute = 28
+        dateComponents.hour = 11
+        dateComponents.minute = 18
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
