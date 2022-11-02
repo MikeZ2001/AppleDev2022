@@ -101,10 +101,11 @@ struct GeneratedCardSheetView: View {
                                 .font(Font.custom("Avenir-Medium", size: 16))
                                 .padding(.top)
                             
-                            Text(currentCardCalendar.songOfTheDay)
-                                .padding(.leading, 10)
-                                .modifier(FlatGlassView())
-                                
+                      
+                                Text(currentCardCalendar.songOfTheDay)
+                                    .padding([.leading,.trailing])
+                                    .modifier(FlatGlassView())
+            
                             //Daily thoughts
                             Text(" \(Image(systemName: "sun.max.fill")) What are your daily thoughts?           ")
                             
@@ -112,10 +113,14 @@ struct GeneratedCardSheetView: View {
                                 
                                 .padding(.top)
                             
-                            Text(currentCardCalendar.thoughtOfTheDay)
-                                .padding(.leading, 10)
-                                .modifier(FlatGlassView())
-                                .padding(.bottom, 15)
+                            
+                                Text(currentCardCalendar.thoughtOfTheDay)
+                                    .padding([.leading,.trailing])
+                                    .modifier(FlatGlassView())
+                                    .padding(.bottom, 15)
+                                    
+                                                        
+                            
                             
                             Spacer()
                             
@@ -164,7 +169,7 @@ struct GeneratedCardSheetView: View {
 struct GeneratedCardSheetView_Previews: PreviewProvider {
     static var previews: some View {
         
-        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooo",emotions: [Emotion]())).background(Image("AppBackground"))
+        GeneratedCardSheetView(currentCardCalendar: Card(date: Date(),image: Image(systemName: "camera"),songOfTheDay: "adfa",thoughtOfTheDay: "Ciaooobsjkjkcabkjbackjbjkcbjkbjcbjabjksbcjkbckj",emotions: [Emotion]())).background(Image("AppBackground"))
             .environmentObject(CardModel())
     }
 }

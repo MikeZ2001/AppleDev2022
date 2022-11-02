@@ -49,14 +49,14 @@ struct TestApp2App: App {
     func setScheduleNotification(){
         let content = UNMutableNotificationContent()
         content.title = "How are you today?"
-        content.subtitle = "It's time to discover you five dots of the day"
+        content.subtitle = "It's time to discover your five dots of the day"
         content.sound = UNNotificationSound.default
 
         // show this notification five seconds from now
       //  let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         var dateComponents = DateComponents()
-        dateComponents.hour = 14
-        dateComponents.minute = 18
+        dateComponents.hour = 23
+        dateComponents.minute = 28
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 

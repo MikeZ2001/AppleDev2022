@@ -204,6 +204,7 @@ struct FlatGlassView : ViewModifier {
                 .padding()
                 .frame(width:270, height: 45)
                 .cornerRadius(14)
+                .multilineTextAlignment(.leading)
         }
     }
 }
